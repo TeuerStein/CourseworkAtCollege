@@ -10,11 +10,26 @@ using System.Windows.Forms;
 
 namespace CourseworkAtCollege
 {
-    public partial class Form1 : Form
+    public partial class BasePage : Form
     {
-        public Form1()
+        public BasePage()
         {
             InitializeComponent();
+        }
+
+        private void base_text_Load(object sender, EventArgs eventArgsVariable)
+        {
+
+        }
+
+        private void next_page_button_Click(object sender, EventArgs eventArgsVariable)
+        {
+
+        }
+
+        private void exit_button_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

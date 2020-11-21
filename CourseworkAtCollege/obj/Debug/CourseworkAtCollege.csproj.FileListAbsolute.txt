@@ -8,3 +8,4 @@ C:\Users\gameb\Desktop\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\Coursew
 C:\Users\gameb\Desktop\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.csproj.CoreCompileInputs.cache
 C:\Users\gameb\Desktop\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.exe
 C:\Users\gameb\Desktop\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.pdb
+C:\Users\gameb\Desktop\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.AutoCollection.resources

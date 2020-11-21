@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CourseworkAtCollege.Models
 {
-    public class Contract
+    public class ContractModel
     {
 
         // Основні змінні класа
@@ -48,7 +48,7 @@ namespace CourseworkAtCollege.Models
             }
         }
 
-        public Contract(
+        public ContractModel(
             int idContractFromConstructor,
             DateTime dateOfSigninFromConstructor,
             DateTime dealdineOfSigninFromConstructor

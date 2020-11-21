@@ -8,9 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-public class MenuStrip
+
+namespace MenuStrip
 {
-	public MenuStrip
+	public class MenuStrip
 	{
 		public void file()
 		{
@@ -28,3 +29,4 @@ public class MenuStrip
 		}
 	}
 }
+

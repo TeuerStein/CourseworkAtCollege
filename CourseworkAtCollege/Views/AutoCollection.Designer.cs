@@ -101,7 +101,7 @@ namespace CourseworkAtCollege
             this.DescriptionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(804, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -143,7 +143,6 @@ namespace CourseworkAtCollege
             this.text_for_second_car.Size = new System.Drawing.Size(280, 30);
             this.text_for_second_car.TabIndex = 6;
             this.text_for_second_car.Text = "Середній клас";
-            this.text_for_second_car.Click += new System.EventHandler(this.label1_Click);
             // 
             // text_for_third_car
             // 
@@ -154,7 +153,6 @@ namespace CourseworkAtCollege
             this.text_for_third_car.Size = new System.Drawing.Size(280, 30);
             this.text_for_third_car.TabIndex = 7;
             this.text_for_third_car.Text = "Позашляховик";
-            this.text_for_third_car.Click += new System.EventHandler(this.label2_Click);
             // 
             // text_for_four_car
             // 
@@ -170,7 +168,7 @@ namespace CourseworkAtCollege
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(804, 451);
             this.Controls.Add(this.text_for_four_car);
             this.Controls.Add(this.text_for_third_car);
             this.Controls.Add(this.text_for_second_car);
@@ -204,8 +202,8 @@ namespace CourseworkAtCollege
         private System.Windows.Forms.ToolStripMenuItem ViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DescriptionToolStripMenuItem;
         private System.Windows.Forms.Label text_for_first_car;
-        private System.Windows.Forms.Label text_for_second_car;
         private System.Windows.Forms.Label text_for_third_car;
         private System.Windows.Forms.Label text_for_four_car;
+        private System.Windows.Forms.Label text_for_second_car;
     }
 }

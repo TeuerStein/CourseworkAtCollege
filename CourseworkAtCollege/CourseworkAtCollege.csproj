@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Customers.cs" />
+    <Compile Include="Models\ContractModel.cs" />
+    <Compile Include="Models\AutoParkModel.cs" />
+    <Compile Include="Models\CustomersModel.cs" />
     <Compile Include="Views\AutoCollection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +60,12 @@
     </Compile>
     <Compile Include="Views\BasePage.Designer.cs">
       <DependentUpon>BasePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MultipleChooserPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MultipleChooserPage.Designer.cs">
+      <DependentUpon>MultipleChooserPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\OrderedNewCar.cs">
       <SubType>Form</SubType>
@@ -79,6 +87,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MultipleChooserPage.resx">
+      <DependentUpon>MultipleChooserPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OrderedNewCar.resx">
+      <DependentUpon>OrderedNewCar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

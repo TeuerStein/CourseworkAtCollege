@@ -22,9 +22,13 @@ namespace CourseworkAtCollege
 
         }
 
+        // Зображення з подією при кліку мишки
         private void first_car_Click(object sender, EventArgs eventArgsVariable)
         {
-
+            this.Hide();
+            OrderedNewCar orderNewCar = new OrderedNewCar();
+            orderNewCar.typeOfCar = "Економ Клас";
+            orderNewCar.Show();
         }
 
         private void second_car_Click(object sender, EventArgs eventArgsVariable)
@@ -38,16 +42,6 @@ namespace CourseworkAtCollege
         }
 
         private void four_car_Click(object sender, EventArgs eventArgsVariable)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
         {
 
         }

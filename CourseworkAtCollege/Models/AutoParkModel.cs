@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CourseworkAtCollege.Models
 {
-    public class AutoPark
+    public class AutoParkModel
     {
 
         // Основні змінні класа
@@ -45,7 +45,7 @@ namespace CourseworkAtCollege.Models
             }
         }
 
-        public AutoPark(
+        public AutoParkModel(
             int idCarFromConstructor,
             string colorCarFromConstructor,
             string nameCarFromConstructor

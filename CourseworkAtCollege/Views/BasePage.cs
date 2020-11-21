@@ -31,13 +31,12 @@ namespace CourseworkAtCollege
         private void next_page_button_Click(object sender, EventArgs eventArgsVariable)
         {
             // Кнопка для перенаправлення Користувача на наступну сторінку
-
-        private void exit_button_Click(object sender, EventArgs eventArgsVariable)
             this.Hide();
-            AutoCollection autoCollection = new AutoCollection();
-            autoCollection.Show();
+            MultipleChooserPage multipleChooserPage = new MultipleChooserPage();
+            multipleChooserPage.Show();
         }
 
+        private void exit_button_Click(object sender, EventArgs eventArgsVariable)
         {
             // Кнопка для закриття програми
 

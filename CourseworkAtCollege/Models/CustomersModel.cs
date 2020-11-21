@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CourseworkAtCollege.Models
 {
-    public class Customers
+    public class CustomersModel
     {
 
         // Основні змінні класа
@@ -58,10 +58,10 @@ namespace CourseworkAtCollege.Models
             }
         }
 
-        public Customers()
+        public CustomersModel()
         {
         }
-        public Customers(
+        public CustomersModel(
             int idCustomerFromConstructor,
             string idClientFromConstructor,
             string idCarFromConstructor,

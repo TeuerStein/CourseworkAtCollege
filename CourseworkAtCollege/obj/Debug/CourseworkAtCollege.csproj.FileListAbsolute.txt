@@ -9,3 +9,14 @@ C:\Users\gameb\Desktop\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\Coursew
 C:\Users\gameb\Desktop\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.exe
 C:\Users\gameb\Desktop\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.pdb
 C:\Users\gameb\Desktop\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.AutoCollection.resources
+C:\Users\gameb\Desktop\Git\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.csprojAssemblyReference.cache
+C:\Users\gameb\Desktop\Git\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.AutoCollection.resources
+C:\Users\gameb\Desktop\Git\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.BasePage.resources
+C:\Users\gameb\Desktop\Git\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.Properties.Resources.resources
+C:\Users\gameb\Desktop\Git\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.csproj.GenerateResource.cache
+C:\Users\gameb\Desktop\Git\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.csproj.CoreCompileInputs.cache
+C:\Users\gameb\Desktop\Git\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.exe
+C:\Users\gameb\Desktop\Git\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.pdb
+C:\Users\gameb\Desktop\Git\CourseworkAtCollege\CourseworkAtCollege\bin\Debug\CourseworkAtCollege.exe.config
+C:\Users\gameb\Desktop\Git\CourseworkAtCollege\CourseworkAtCollege\bin\Debug\CourseworkAtCollege.exe
+C:\Users\gameb\Desktop\Git\CourseworkAtCollege\CourseworkAtCollege\bin\Debug\CourseworkAtCollege.pdb

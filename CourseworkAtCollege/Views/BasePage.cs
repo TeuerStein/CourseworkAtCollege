@@ -32,12 +32,12 @@ namespace CourseworkAtCollege
         {
             // Кнопка для перенаправлення Користувача на наступну сторінку
 
+        private void exit_button_Click(object sender, EventArgs eventArgsVariable)
             this.Hide();
             AutoCollection autoCollection = new AutoCollection();
             autoCollection.Show();
         }
 
-        private void exit_button_Click(object sender, EventArgs eventArgsVariable)
         {
             // Кнопка для закриття програми
 

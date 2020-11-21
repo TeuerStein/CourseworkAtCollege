@@ -46,24 +46,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasePage.cs">
+    <Compile Include="Models\Customers.cs" />
+    <Compile Include="Views\AutoCollection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BasePage.Designer.cs">
+    <Compile Include="Views\AutoCollection.Designer.cs">
+      <DependentUpon>AutoCollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BasePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BasePage.Designer.cs">
       <DependentUpon>BasePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="AutoCollection.cs">
+    <Compile Include="Views\OrderedNewCar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AutoCollection.Designer.cs">
-      <DependentUpon>AutoCollection.cs</DependentUpon>
+    <Compile Include="Views\OrderedNewCar.Designer.cs">
+      <DependentUpon>OrderedNewCar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AutoCollection.resx">
+    <Compile Include="SupportingFiles\MenuStrip.cs" />
+    <EmbeddedResource Include="Views\AutoCollection.resx">
       <DependentUpon>AutoCollection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BasePage.resx">
+    <EmbeddedResource Include="Views\BasePage.resx">
       <DependentUpon>BasePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -94,6 +103,9 @@
     <Content Include="Resources\photo_2020-11-07_14-41-228.png" />
     <Content Include="Resources\photo_2020-11-07_14-41-244.png" />
     <Content Include="Resources\photo_2020-11-07_14-41-311.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

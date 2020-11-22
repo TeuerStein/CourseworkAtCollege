@@ -13,24 +13,49 @@ namespace CourseworkAtCollege
     public partial class OrderedNewCar : Form
     {
         public string typeOfCar;
+
         public OrderedNewCar()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs eventArgs)
-        {
+        private void firstNameBox_TextChanged(object sender, EventArgs eventArgs) { }
 
+        private void lastNameBox_TextChanged(object sender, EventArgs eventArgs) { }
+
+        private void fatherNameBox_TextChanged(object sender, EventArgs eventArgs) { }
+
+        private void passportDataBox_TextChanged(object sender, EventArgs eventArgs) { }
+
+        private void phoneNumberBox_TextChanged(object sender, EventArgs eventArgs) { }
+
+        private void dateOfTheEndOfTheContractBox_TextChanged(object sender, EventArgs eventArgs) { }
+
+        public static string firstNameFiledInfo = "";
+        public static string lastNameFiledInfo = "";
+        public static string fatherNameFieldInfo = "";
+        public static string passportDataFieldInfo = "";
+        public static string phoneNumberFieldInfo = "";
+        public static string dateOfTheEndOfTheContractFieldInfo = "";
+
+        private void ordered_button_Click(object sender, EventArgs eventArgs)
+        {
+            firstNameFiledInfo = firstNameBox.Text;
+            lastNameFiledInfo = lastNameBox.Text;
+            fatherNameFieldInfo = fatherNameBox.Text;
+            passportDataFieldInfo = passportDataBox.Text;
+            phoneNumberFieldInfo = phoneNumberBox.Text;
+            dateOfTheEndOfTheContractFieldInfo = dateOfTheEndOfTheContractBox.Text;
+
+            ResultOfOrdering resultOfOrderingVariable = new ResultOfOrdering();
+            resultOfOrderingVariable.Show();
         }
 
-        private void label1_Click(object sender, EventArgs eventArgs)
+        private void exit_button_Click(object sender, EventArgs eventArgs)
         {
+            // Кнопка для закриття програми
 
-        }
-
-        private void button1_Click(object sender, EventArgs eventArgs)
-        {
-
+            this.Close();
         }
     }
 }

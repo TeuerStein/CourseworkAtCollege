@@ -27,7 +27,7 @@ namespace CourseworkAtCollege
         {
             this.Hide();
             OrderedNewCar orderNewCar = new OrderedNewCar();
-            orderNewCar.typeOfCar = "Економ Клас";
+            orderNewCar.typeOfCar = "Економ клас";
             orderNewCar.Show();
         }
 

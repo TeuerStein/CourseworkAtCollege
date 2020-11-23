@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,21 +32,37 @@ namespace CourseworkAtCollege
 
         private void dateOfTheEndOfTheContractBox_TextChanged(object sender, EventArgs eventArgs) { }
 
-        public static string firstNameFiledInfo = "";
-        public static string lastNameFiledInfo = "";
-        public static string fatherNameFieldInfo = "";
-        public static string passportDataFieldInfo = "";
-        public static string phoneNumberFieldInfo = "";
-        public static string dateOfTheEndOfTheContractFieldInfo = "";
+        public static Client client = new Client();
 
         private void ordered_button_Click(object sender, EventArgs eventArgs)
         {
-            firstNameFiledInfo = firstNameBox.Text;
-            lastNameFiledInfo = lastNameBox.Text;
-            fatherNameFieldInfo = fatherNameBox.Text;
-            passportDataFieldInfo = passportDataBox.Text;
-            phoneNumberFieldInfo = phoneNumberBox.Text;
-            dateOfTheEndOfTheContractFieldInfo = dateOfTheEndOfTheContractBox.Text;
+            client.firstName = firstNameBox.Text;
+            client.lastName = lastNameBox.Text;
+            client.fatherName = fatherNameBox.Text;
+            client.passportData = passportDataBox.Text;
+            client.dateOfTheEndOfTheContract = dateOfTheEndOfTheContractBox.Text;
+            client.phoneNumber = phoneNumberBox.Text;
+
+            DB dataBase = new DB();
+            MySqlCommand command = new MySqlCommand("INSERT INTO `client` (`FirstName`, `LastName`, `FatherName`, `PassportData`, `EndOfContract`, `PhoneNumber`) VALUES (@firstName, @lastName, @fatherName, @passport, @endOfContract, @phoneNumber);", dataBase.getConnection());
+
+            command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = client.firstName;
+            command.Parameters.Add("@lastName", MySqlDbType.VarChar).Value = client.lastName;
+            command.Parameters.Add("@fatherName", MySqlDbType.VarChar).Value = client.fatherName;
+            command.Parameters.Add("@passport", MySqlDbType.VarChar).Value = client.passportData;
+            command.Parameters.Add("@endOfContract", MySqlDbType.VarChar).Value = client.dateOfTheEndOfTheContract;
+            command.Parameters.Add("@phoneNumber", MySqlDbType.VarChar).Value = client.phoneNumber;
+
+            dataBase.openConnection();
+
+            if(command.ExecuteNonQuery() == 1)
+            {
+                MessageBox.Show("YEAHYEAHYEAH");
+            } else {
+                MessageBox.Show("NO");
+            }
+
+            dataBase.closeConnection();
 
             ResultOfOrdering resultOfOrderingVariable = new ResultOfOrdering();
             resultOfOrderingVariable.Show();
@@ -56,6 +73,11 @@ namespace CourseworkAtCollege
             // Кнопка для закриття програми
 
             this.Close();
+        }
+
+        private void OrderedNewCar_Load(object sender, EventArgs eventArgs)
+        {
+
         }
     }
 }

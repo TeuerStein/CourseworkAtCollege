@@ -19,15 +19,25 @@ namespace CourseworkAtCollege
 
         private void Labels_Load(object sender, EventArgs eventArgs)
         {
-            firstName.Text = OrderedNewCar.firstNameFiledInfo;
-            lastName.Text = OrderedNewCar.lastNameFiledInfo;
-            fatherName.Text = OrderedNewCar.fatherNameFieldInfo;
-            passportData.Text = OrderedNewCar.passportDataFieldInfo;
-            telephoneNumber.Text = OrderedNewCar.passportDataFieldInfo;
-            dateOfTheEndOfTheContract.Text = OrderedNewCar.dateOfTheEndOfTheContractFieldInfo;
+            firstName.Text = OrderedNewCar.client.firstName;
+            lastName.Text = OrderedNewCar.client.lastName;
+            fatherName.Text = OrderedNewCar.client.fatherName;
+            passportData.Text = OrderedNewCar.client.passportData;
+            dateOfTheEndOfTheContract.Text = OrderedNewCar.client.dateOfTheEndOfTheContract;
+            telephoneNumber.Text = OrderedNewCar.client.phoneNumber;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs eventArgs)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs eventArgs)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs eventArgs)
         {
 
         }

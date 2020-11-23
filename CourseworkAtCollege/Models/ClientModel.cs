@@ -10,99 +10,16 @@ namespace CourseworkAtCollege
     {
 
         // Основні змінні класа
-        private int idClient;
+        public string firstName;
 
-        private string firstName
-        {
-            set
-            {
-                if(value.Length <= 0)
-                {
-                    throw new ArgumentException("Введіть дані. Поле не може бути порожнім.");
-                }
-                else firstName = value;
-            }
-        }
+        public string lastName;
 
-        private string lastName
-        {
-            set
-            {
-                if(value.Length < 0)
-                {
-                    throw new ArgumentException("Введіть дані. Поле не може бути порожнім.");
-                }
-                else lastName = value;
-            }
-        }
+        public string fatherName;
 
-        private string fatherName
-        {
-            set
-            {
-                if (value.Length < 0)
-                {
-                    throw new ArgumentException("Введіть дані. Поле не може бути порожнім.");
-                }
-                else fatherName = value;
-            }
-        }
-        private string passportData
-        {
-            set
-            {
-                if(value.Length < 0)
-                {
-                    throw new ArgumentException("Введіть дані. Поле не може бути порожнім.");
-                }
-                else passportData = value;
-            }
-        }
+        public string passportData;
 
-        private string telephoneNumber
-        {
-            set
-            {
-                if(value.Length < 0)
-                {
-                    throw new ArgumentException("Введіть дані. Поле не може бути порожнім.");
-                }
-                else telephoneNumber = value;
-            }
-        }
-        
-        private string dateOfTheEndOfTheContract
-        {
-            set
-            {
-                if (value.Length < 0)
-                {
-                    throw new ArgumentException("Введіть дані. Поле не може бути порожнім.");
-                }
-                else dateOfTheEndOfTheContract = value;
-            }
-        }
+        public string phoneNumber;
 
-        public Client(
-            string firstNameFromConstructor,
-            string lastNameFromConstructor,
-            string fatherNameFromConstructor,
-            string passportDataFromConstructor,
-            string telephoneNumberFromConstructor,
-            string dateOfTheEndOfTheContractFromConstructor
-        )
-        {
-            // Конструктор класа
-
-            Random randomID = new Random();
-
-            this.idClient = randomID.Next(0, 255);
-            this.firstName = firstNameFromConstructor;
-            this.lastName = lastNameFromConstructor;
-            this.fatherName = fatherNameFromConstructor;
-            this.passportData = passportDataFromConstructor;
-            this.telephoneNumber = telephoneNumberFromConstructor;
-            this.dateOfTheEndOfTheContract = dateOfTheEndOfTheContractFromConstructor;       
-        }
+        public string dateOfTheEndOfTheContract;
     }
 }

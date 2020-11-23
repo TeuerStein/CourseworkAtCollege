@@ -54,6 +54,14 @@ namespace CourseworkAtCollege
             this.label1.TabIndex = 0;
             this.label1.Text = "Ім`я";
             // 
+            // firstNameBox
+            // 
+            this.firstNameBox.Location = new System.Drawing.Point(459, 67);
+            this.firstNameBox.Name = "firstNameBox";
+            this.firstNameBox.Size = new System.Drawing.Size(100, 20);
+            this.firstNameBox.TabIndex = 1;
+            this.firstNameBox.TextChanged += new System.EventHandler(this.firstNameBox_TextChanged);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -98,14 +106,6 @@ namespace CourseworkAtCollege
             this.label6.Size = new System.Drawing.Size(130, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "Дата закінчення оренди";
-            // 
-            // firstNameBox
-            // 
-            this.firstNameBox.Location = new System.Drawing.Point(459, 67);
-            this.firstNameBox.Name = "firstNameBox";
-            this.firstNameBox.Size = new System.Drawing.Size(100, 20);
-            this.firstNameBox.TabIndex = 1;
-            this.firstNameBox.TextChanged += new System.EventHandler(this.firstNameBox_TextChanged);
             // 
             // lastNameBox
             // 
@@ -188,6 +188,7 @@ namespace CourseworkAtCollege
             this.Controls.Add(this.label1);
             this.Name = "OrderedNewCar";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.OrderedNewCar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

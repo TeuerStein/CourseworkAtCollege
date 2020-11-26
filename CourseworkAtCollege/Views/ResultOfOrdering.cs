@@ -19,12 +19,13 @@ namespace CourseworkAtCollege
 
         private void Labels_Load(object sender, EventArgs eventArgs)
         {
-            firstName.Text = OrderedNewCar.client.firstName;
-            lastName.Text = OrderedNewCar.client.lastName;
-            fatherName.Text = OrderedNewCar.client.fatherName;
-            passportData.Text = OrderedNewCar.client.passportData;
-            dateOfTheEndOfTheContract.Text = OrderedNewCar.client.dateOfTheEndOfTheContract;
-            telephoneNumber.Text = OrderedNewCar.client.phoneNumber;
+            firstName.Text = "Ім'я: " + OrderedNewCar.client.firstName;
+            lastName.Text = "Прізвище: " + OrderedNewCar.client.lastName;
+            fatherName.Text = "По батькові: " + OrderedNewCar.client.fatherName;
+            passportData.Text = "Паспорт: " + OrderedNewCar.client.passportData;
+            telephoneNumber.Text = "Номер телефону: " + OrderedNewCar.client.phoneNumber;
+            dateOfTheEndOfTheContract.Text = "Дата завершення контракту: " + OrderedNewCar.client.dateOfTheEndOfTheContract;
+            typeOfCar.Text = "Тип машини: " + OrderedNewCar.client.typeOfCar;
         }
 
         private void button1_Click(object sender, EventArgs eventArgs)
@@ -39,7 +40,7 @@ namespace CourseworkAtCollege
 
         private void button3_Click(object sender, EventArgs eventArgs)
         {
-
+            this.Close();
         }
     }
 }

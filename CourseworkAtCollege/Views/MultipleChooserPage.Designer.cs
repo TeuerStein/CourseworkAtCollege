@@ -66,6 +66,7 @@ namespace CourseworkAtCollege
             this.ListsOfOrdering.TabIndex = 2;
             this.ListsOfOrdering.Text = "Список замовлень";
             this.ListsOfOrdering.UseVisualStyleBackColor = true;
+            this.ListsOfOrdering.Click += new System.EventHandler(this.ListsOfOrdering_Click);
             // 
             // menuStrip1
             // 

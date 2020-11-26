@@ -39,3 +39,4 @@ C:\Users\gameb\Desktop\Git\CourseworkAtCollege\CourseworkAtCollege\bin\Debug\Sys
 C:\Users\gameb\Desktop\Git\CourseworkAtCollege\CourseworkAtCollege\bin\Debug\MySql.Data.xml
 C:\Users\gameb\Desktop\Git\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.exe.config
 C:\Users\gameb\Desktop\Git\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.csproj.CopyComplete
+C:\Users\gameb\Desktop\Git\CourseworkAtCollege\CourseworkAtCollege\obj\Debug\CourseworkAtCollege.AllInfoAboutOrders.resources

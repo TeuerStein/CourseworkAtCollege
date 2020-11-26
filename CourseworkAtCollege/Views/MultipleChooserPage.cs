@@ -23,5 +23,12 @@ namespace CourseworkAtCollege
             AutoCollection autoCollection = new AutoCollection();
             autoCollection.Show();
         }
+
+        private void ListsOfOrdering_Click(object sender, EventArgs eventArgs)
+        {
+            this.Hide();
+            AllInfoAboutOrders allInfoAboutOrders = new AllInfoAboutOrders();
+            allInfoAboutOrders.Show();
+        }
     }
 }

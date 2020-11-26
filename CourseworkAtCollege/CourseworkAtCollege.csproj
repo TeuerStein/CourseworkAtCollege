@@ -66,6 +66,12 @@
     <Compile Include="Views\BasePage.Designer.cs">
       <DependentUpon>BasePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\AllInfoAboutOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AllInfoAboutOrders.Designer.cs">
+      <DependentUpon>AllInfoAboutOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ResultOfOrdering.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AllInfoAboutOrders.resx">
+      <DependentUpon>AllInfoAboutOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ResultOfOrdering.resx">
       <DependentUpon>ResultOfOrdering.cs</DependentUpon>

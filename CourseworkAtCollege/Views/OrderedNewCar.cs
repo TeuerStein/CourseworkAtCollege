@@ -42,9 +42,10 @@ namespace CourseworkAtCollege
             client.passportData = passportDataBox.Text;
             client.dateOfTheEndOfTheContract = dateOfTheEndOfTheContractBox.Text;
             client.phoneNumber = phoneNumberBox.Text;
+            client.typeOfCar = typeOfCar;
 
             DB dataBase = new DB();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `client` (`FirstName`, `LastName`, `FatherName`, `PassportData`, `EndOfContract`, `PhoneNumber`) VALUES (@firstName, @lastName, @fatherName, @passport, @endOfContract, @phoneNumber);", dataBase.getConnection());
+            MySqlCommand command = new MySqlCommand("INSERT INTO `client` (`FirstName`, `LastName`, `FatherName`, `PassportData`, `EndOfContract`, `PhoneNumber`, `TypeOfCar`) VALUES (@firstName, @lastName, @fatherName, @passport, @endOfContract, @phoneNumber, @typeOfCar);", dataBase.getConnection());
 
             command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = client.firstName;
             command.Parameters.Add("@lastName", MySqlDbType.VarChar).Value = client.lastName;
@@ -52,15 +53,11 @@ namespace CourseworkAtCollege
             command.Parameters.Add("@passport", MySqlDbType.VarChar).Value = client.passportData;
             command.Parameters.Add("@endOfContract", MySqlDbType.VarChar).Value = client.dateOfTheEndOfTheContract;
             command.Parameters.Add("@phoneNumber", MySqlDbType.VarChar).Value = client.phoneNumber;
+            command.Parameters.Add("@typeOfCar", MySqlDbType.VarChar).Value = client.typeOfCar;
 
             dataBase.openConnection();
 
-            if(command.ExecuteNonQuery() == 1)
-            {
-                MessageBox.Show("YEAHYEAHYEAH");
-            } else {
-                MessageBox.Show("NO");
-            }
+            if(command.ExecuteNonQuery() == 1) { }
 
             dataBase.closeConnection();
 
@@ -75,7 +72,7 @@ namespace CourseworkAtCollege
             this.Close();
         }
 
-        private void OrderedNewCar_Load(object sender, EventArgs eventArgs)
+        private void OrderedNewCar_Load(object sender, EventArgs e)
         {
 
         }

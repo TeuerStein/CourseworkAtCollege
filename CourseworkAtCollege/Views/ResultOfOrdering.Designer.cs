@@ -35,15 +35,16 @@ namespace CourseworkAtCollege
             this.passportData = new System.Windows.Forms.Label();
             this.telephoneNumber = new System.Windows.Forms.Label();
             this.dateOfTheEndOfTheContract = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.mainPage_button = new System.Windows.Forms.Button();
+            this.edit_button = new System.Windows.Forms.Button();
+            this.exit_button = new System.Windows.Forms.Button();
+            this.typeOfCar = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // firstName
             // 
             this.firstName.AutoSize = true;
-            this.firstName.Location = new System.Drawing.Point(383, 50);
+            this.firstName.Location = new System.Drawing.Point(383, 29);
             this.firstName.Name = "firstName";
             this.firstName.Size = new System.Drawing.Size(35, 13);
             this.firstName.TabIndex = 0;
@@ -52,7 +53,7 @@ namespace CourseworkAtCollege
             // lastName
             // 
             this.lastName.AutoSize = true;
-            this.lastName.Location = new System.Drawing.Point(383, 98);
+            this.lastName.Location = new System.Drawing.Point(383, 65);
             this.lastName.Name = "lastName";
             this.lastName.Size = new System.Drawing.Size(35, 13);
             this.lastName.TabIndex = 1;
@@ -61,7 +62,7 @@ namespace CourseworkAtCollege
             // fatherName
             // 
             this.fatherName.AutoSize = true;
-            this.fatherName.Location = new System.Drawing.Point(383, 148);
+            this.fatherName.Location = new System.Drawing.Point(383, 105);
             this.fatherName.Name = "fatherName";
             this.fatherName.Size = new System.Drawing.Size(35, 13);
             this.fatherName.TabIndex = 2;
@@ -70,7 +71,7 @@ namespace CourseworkAtCollege
             // passportData
             // 
             this.passportData.AutoSize = true;
-            this.passportData.Location = new System.Drawing.Point(383, 200);
+            this.passportData.Location = new System.Drawing.Point(383, 142);
             this.passportData.Name = "passportData";
             this.passportData.Size = new System.Drawing.Size(35, 13);
             this.passportData.TabIndex = 3;
@@ -79,7 +80,7 @@ namespace CourseworkAtCollege
             // telephoneNumber
             // 
             this.telephoneNumber.AutoSize = true;
-            this.telephoneNumber.Location = new System.Drawing.Point(383, 248);
+            this.telephoneNumber.Location = new System.Drawing.Point(383, 185);
             this.telephoneNumber.Name = "telephoneNumber";
             this.telephoneNumber.Size = new System.Drawing.Size(35, 13);
             this.telephoneNumber.TabIndex = 4;
@@ -88,50 +89,60 @@ namespace CourseworkAtCollege
             // dateOfTheEndOfTheContract
             // 
             this.dateOfTheEndOfTheContract.AutoSize = true;
-            this.dateOfTheEndOfTheContract.Location = new System.Drawing.Point(383, 296);
+            this.dateOfTheEndOfTheContract.Location = new System.Drawing.Point(383, 223);
             this.dateOfTheEndOfTheContract.Name = "dateOfTheEndOfTheContract";
             this.dateOfTheEndOfTheContract.Size = new System.Drawing.Size(35, 13);
             this.dateOfTheEndOfTheContract.TabIndex = 5;
             this.dateOfTheEndOfTheContract.Text = "label6";
             // 
-            // button1
+            // mainPage_button
             // 
-            this.button1.Location = new System.Drawing.Point(180, 349);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.mainPage_button.Location = new System.Drawing.Point(180, 349);
+            this.mainPage_button.Name = "mainPage_button";
+            this.mainPage_button.Size = new System.Drawing.Size(75, 23);
+            this.mainPage_button.TabIndex = 6;
+            this.mainPage_button.Text = "Головна";
+            this.mainPage_button.UseVisualStyleBackColor = true;
+            this.mainPage_button.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // edit_button
             // 
-            this.button2.Location = new System.Drawing.Point(362, 349);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.edit_button.Location = new System.Drawing.Point(362, 349);
+            this.edit_button.Name = "edit_button";
+            this.edit_button.Size = new System.Drawing.Size(75, 23);
+            this.edit_button.TabIndex = 7;
+            this.edit_button.Text = "Редагувати";
+            this.edit_button.UseVisualStyleBackColor = true;
+            this.edit_button.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // exit_button
             // 
-            this.button3.Location = new System.Drawing.Point(543, 349);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.exit_button.Location = new System.Drawing.Point(543, 349);
+            this.exit_button.Name = "exit_button";
+            this.exit_button.Size = new System.Drawing.Size(75, 23);
+            this.exit_button.TabIndex = 8;
+            this.exit_button.Text = "Вихід";
+            this.exit_button.UseVisualStyleBackColor = true;
+            this.exit_button.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // typeOfCar
+            // 
+            this.typeOfCar.AutoSize = true;
+            this.typeOfCar.Location = new System.Drawing.Point(383, 260);
+            this.typeOfCar.Name = "typeOfCar";
+            this.typeOfCar.Size = new System.Drawing.Size(35, 13);
+            this.typeOfCar.TabIndex = 9;
+            this.typeOfCar.Text = "label1";
             // 
             // ResultOfOrdering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.typeOfCar);
+            this.Controls.Add(this.exit_button);
+            this.Controls.Add(this.edit_button);
+            this.Controls.Add(this.mainPage_button);
             this.Controls.Add(this.dateOfTheEndOfTheContract);
             this.Controls.Add(this.telephoneNumber);
             this.Controls.Add(this.passportData);
@@ -154,8 +165,9 @@ namespace CourseworkAtCollege
         private System.Windows.Forms.Label passportData;
         private System.Windows.Forms.Label telephoneNumber;
         private System.Windows.Forms.Label dateOfTheEndOfTheContract;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button mainPage_button;
+        private System.Windows.Forms.Button edit_button;
+        private System.Windows.Forms.Button exit_button;
+        private System.Windows.Forms.Label typeOfCar;
     }
 }

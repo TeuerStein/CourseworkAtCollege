@@ -21,5 +21,7 @@ namespace CourseworkAtCollege
         public string phoneNumber;
 
         public string dateOfTheEndOfTheContract;
+
+        public string typeOfCar;
     }
 }

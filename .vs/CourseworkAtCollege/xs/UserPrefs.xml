@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{38CEB1C2-11F6-40FD-BF6B-0BDA3AD8FB2D}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CourseworkAtCollege/Views/AllInfoAboutOrders.cs">
+    <Files>
+      <File FileName="CourseworkAtCollege/Views/AllInfoAboutOrders.cs" Line="32" Column="26" />
+      <File FileName="CourseworkAtCollege/Views/OrderedNewCar.cs" Line="48" Column="59" />
+      <File FileName="CourseworkAtCollege/Models/DB.cs" Line="28" Column="38" />
+      <File FileName="CourseworkAtCollege/Models/ClientModel.cs" Line="48" Column="43" />
+      <File FileName="CourseworkAtCollege/Views/AllInfoAboutOrders.Designer.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CourseworkAtCollege" expanded="True">
+            <Node name="CourseworkAtCollege" expanded="True">
+              <Node name="Models" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="AllInfoAboutOrders.cs" expanded="True" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.CourseworkAtCollege PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

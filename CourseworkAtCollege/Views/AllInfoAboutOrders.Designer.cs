@@ -30,6 +30,11 @@ namespace CourseworkAtCollege
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.exit_button = new System.Windows.Forms.Button();
+            this.clietId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fatherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,10 +42,6 @@ namespace CourseworkAtCollege
             this.EndOfContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeOfCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.exit_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,6 +49,7 @@ namespace CourseworkAtCollege
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clietId,
             this.firstName,
             this.lastName,
             this.fatherName,
@@ -60,41 +62,6 @@ namespace CourseworkAtCollege
             this.dataGridView1.Size = new System.Drawing.Size(802, 150);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
-            // 
-            // firstName
-            // 
-            this.firstName.HeaderText = "Ім`я";
-            this.firstName.Name = "firstName";
-            // 
-            // lastName
-            // 
-            this.lastName.HeaderText = "Прізвище";
-            this.lastName.Name = "lastName";
-            // 
-            // fatherName
-            // 
-            this.fatherName.HeaderText = "По батькові";
-            this.fatherName.Name = "fatherName";
-            // 
-            // passportData
-            // 
-            this.passportData.HeaderText = "Паспортні дані";
-            this.passportData.Name = "passportData";
-            // 
-            // EndOfContract
-            // 
-            this.EndOfContract.HeaderText = "Дата закінчення контракту";
-            this.EndOfContract.Name = "EndOfContract";
-            // 
-            // phoneNumber
-            // 
-            this.phoneNumber.HeaderText = "Номер телефону";
-            this.phoneNumber.Name = "phoneNumber";
-            // 
-            // typeOfCar
-            // 
-            this.typeOfCar.HeaderText = "Клас машини";
-            this.typeOfCar.Name = "typeOfCar";
             // 
             // button1
             // 
@@ -133,6 +100,46 @@ namespace CourseworkAtCollege
             this.exit_button.UseVisualStyleBackColor = true;
             this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
             // 
+            // clietId
+            // 
+            this.clietId.HeaderText = "ID";
+            this.clietId.Name = "clietId";
+            // 
+            // firstName
+            // 
+            this.firstName.HeaderText = "Ім`я";
+            this.firstName.Name = "firstName";
+            // 
+            // lastName
+            // 
+            this.lastName.HeaderText = "Прізвище";
+            this.lastName.Name = "lastName";
+            // 
+            // fatherName
+            // 
+            this.fatherName.HeaderText = "По батькові";
+            this.fatherName.Name = "fatherName";
+            // 
+            // passportData
+            // 
+            this.passportData.HeaderText = "Паспортні дані";
+            this.passportData.Name = "passportData";
+            // 
+            // EndOfContract
+            // 
+            this.EndOfContract.HeaderText = "Дата закінчення контракту";
+            this.EndOfContract.Name = "EndOfContract";
+            // 
+            // phoneNumber
+            // 
+            this.phoneNumber.HeaderText = "Номер телефону";
+            this.phoneNumber.Name = "phoneNumber";
+            // 
+            // typeOfCar
+            // 
+            this.typeOfCar.HeaderText = "Клас машини";
+            this.typeOfCar.Name = "typeOfCar";
+            // 
             // AllInfoAboutOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,6 +152,7 @@ namespace CourseworkAtCollege
             this.Controls.Add(this.dataGridView1);
             this.Name = "AllInfoAboutOrders";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.AllInfoAboutOrders_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -153,6 +161,11 @@ namespace CourseworkAtCollege
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button exit_button;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clietId;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn fatherName;
@@ -160,9 +173,5 @@ namespace CourseworkAtCollege
         private System.Windows.Forms.DataGridViewTextBoxColumn EndOfContract;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeOfCar;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button exit_button;
     }
 }

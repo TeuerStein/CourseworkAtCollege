@@ -38,7 +38,7 @@ namespace CourseworkAtCollege
 
             try
             {
-                string commandForDataBase = "select * from 'client';";
+                string commandForDataBase = "select * from client;";
                 MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection());
 
                 MySqlDataReader sqlReader = command.ExecuteReader();
@@ -64,7 +64,7 @@ namespace CourseworkAtCollege
                 try
                 {
                     foreach (string[] singleObjectFromDataBaseForEach in objectsFromDataBase)
-                        dataGridView(singleObjectFromDataBaseForEach);
+                        dataGridView1.Rows.Add(singleObjectFromDataBaseForEach);
                 } catch
                 {
                     Console.WriteLine("You have problems with dataGridView");
@@ -79,6 +79,11 @@ namespace CourseworkAtCollege
         }
 
         private void exit_button_Click(object sender, EventArgs eventArgs)
+        {
+
+        }
+
+        private void AllInfoAboutOrders_Load(object sender, EventArgs e)
         {
 
         }

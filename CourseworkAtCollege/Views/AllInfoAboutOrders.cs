@@ -26,11 +26,6 @@ namespace CourseworkAtCollege
 
         }
 
-        private void dataGridView(string[] objectFromDataBase)
-        {
-            dataGridView1.Rows.Add(objectFromDataBase);
-        }
-
         private void GettingAllObjectsFromDataBase()
         {
             DB dataBase = new DB();
@@ -76,6 +71,57 @@ namespace CourseworkAtCollege
                 dataBase.closeConnection();
             }
 
+        }
+
+        public static Client client = new Client();
+
+        private void ChanginObject(string selectedObject)
+        {
+            client.firstName = null; // some firstName
+            client.lastName = null; // some lastName
+            client.fatherName = null; // some fatherName
+            client.passportData = null; // some passportData
+            client.dateOfTheEndOfTheContract = null; // some dateOfTheEndOfTheContract
+            client.phoneNumber = null; // some phoneNumber
+            client.typeOfCar = null; // some typeOfCar
+
+            DB dataBase = new DB();
+            dataBase.openConnection();
+
+            try
+            {
+                string commandForDataBase =
+                    "UPDATE client" +
+                    "SET" +
+                        "FirstName = '@firstName'," +
+                        "LastName = '@lastName'," +
+                        "FatherName = '@fatherName'," +
+                        "PassportData = '@passport'," +
+                        "EndOfContract = '@endOfContract'," +
+                        "PhoneNumber = '@phoneNumber'," +
+                        "TypeOfCar = '@typeOfCar'" +
+                    "WHERE" +
+                        "idClient = @clientID; ";
+                MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection());
+
+                command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = client.firstName;
+                command.Parameters.Add("@lastName", MySqlDbType.VarChar).Value = client.lastName;
+                command.Parameters.Add("@fatherName", MySqlDbType.VarChar).Value = client.fatherName;
+                command.Parameters.Add("@passport", MySqlDbType.VarChar).Value = client.passportData;
+                command.Parameters.Add("@endOfContract", MySqlDbType.VarChar).Value = client.dateOfTheEndOfTheContract;
+                command.Parameters.Add("@phoneNumber", MySqlDbType.VarChar).Value = client.phoneNumber;
+                command.Parameters.Add("@typeOfCar", MySqlDbType.VarChar).Value = client.typeOfCar;
+                command.Parameters.Add("@clientID", MySqlDbType.Int32).Value = client.clientId;
+
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+            finally
+            {
+                dataBase.closeConnection();
+            }
         }
 
         private void exit_button_Click(object sender, EventArgs eventArgs)

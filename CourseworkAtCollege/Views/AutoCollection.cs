@@ -33,17 +33,27 @@ namespace CourseworkAtCollege
 
         private void second_car_Click(object sender, EventArgs eventArgsVariable)
         {
-
+            this.Hide();
+            OrderedNewCar orderNewCar = new OrderedNewCar();
+            orderNewCar.typeOfCar = "Середній клас";
+            orderNewCar.Show();
         }
 
         private void third_car_Click(object sender, EventArgs eventArgsVariable)
         {
+            this.Hide();
+            OrderedNewCar orderNewCar = new OrderedNewCar();
+            orderNewCar.typeOfCar = "Позашляховик";
+            orderNewCar.Show();
 
         }
 
         private void four_car_Click(object sender, EventArgs eventArgsVariable)
         {
-
+            this.Hide();
+            OrderedNewCar orderNewCar = new OrderedNewCar();
+            orderNewCar.typeOfCar = "Преміум клас";
+            orderNewCar.Show();
         }
     }
 }

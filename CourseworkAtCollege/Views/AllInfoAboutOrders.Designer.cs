@@ -30,10 +30,6 @@ namespace CourseworkAtCollege
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.exit_button = new System.Windows.Forms.Button();
             this.clietId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +38,10 @@ namespace CourseworkAtCollege
             this.EndOfContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeOfCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creatingButton = new System.Windows.Forms.Button();
+            this.changingButton = new System.Windows.Forms.Button();
+            this.DeletingButton = new System.Windows.Forms.Button();
+            this.exit_button = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
@@ -62,46 +62,10 @@ namespace CourseworkAtCollege
             this.typeOfCar});
             this.dataGridView1.Location = new System.Drawing.Point(0, 78);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(802, 150);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(72, 374);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(171, 374);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(269, 374);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // exit_button
-            // 
-            this.exit_button.Location = new System.Drawing.Point(646, 374);
-            this.exit_button.Name = "exit_button";
-            this.exit_button.Size = new System.Drawing.Size(75, 23);
-            this.exit_button.TabIndex = 4;
-            this.exit_button.Text = "Вихід";
-            this.exit_button.UseVisualStyleBackColor = true;
-            this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
             // 
             // clietId
             // 
@@ -143,6 +107,45 @@ namespace CourseworkAtCollege
             this.typeOfCar.HeaderText = "Клас машини";
             this.typeOfCar.Name = "typeOfCar";
             // 
+            // creatingButton
+            // 
+            this.creatingButton.Location = new System.Drawing.Point(72, 374);
+            this.creatingButton.Name = "creatingButton";
+            this.creatingButton.Size = new System.Drawing.Size(75, 23);
+            this.creatingButton.TabIndex = 1;
+            this.creatingButton.Text = "Додати";
+            this.creatingButton.UseVisualStyleBackColor = true;
+            this.creatingButton.Click += new System.EventHandler(this.creatingButton_Click);
+            // 
+            // changingButton
+            // 
+            this.changingButton.Location = new System.Drawing.Point(171, 374);
+            this.changingButton.Name = "changingButton";
+            this.changingButton.Size = new System.Drawing.Size(75, 23);
+            this.changingButton.TabIndex = 2;
+            this.changingButton.Text = "Редагувати";
+            this.changingButton.UseVisualStyleBackColor = true;
+            this.changingButton.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // DeletingButton
+            // 
+            this.DeletingButton.Location = new System.Drawing.Point(269, 374);
+            this.DeletingButton.Name = "DeletingButton";
+            this.DeletingButton.Size = new System.Drawing.Size(75, 23);
+            this.DeletingButton.TabIndex = 3;
+            this.DeletingButton.Text = "Видалити";
+            this.DeletingButton.UseVisualStyleBackColor = true;
+            // 
+            // exit_button
+            // 
+            this.exit_button.Location = new System.Drawing.Point(646, 374);
+            this.exit_button.Name = "exit_button";
+            this.exit_button.Size = new System.Drawing.Size(75, 23);
+            this.exit_button.TabIndex = 4;
+            this.exit_button.Text = "Вихід";
+            this.exit_button.UseVisualStyleBackColor = true;
+            this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
+            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(577, 29);
@@ -180,9 +183,9 @@ namespace CourseworkAtCollege
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.exit_button);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.DeletingButton);
+            this.Controls.Add(this.changingButton);
+            this.Controls.Add(this.creatingButton);
             this.Controls.Add(this.dataGridView1);
             this.Name = "AllInfoAboutOrders";
             this.Text = "Form1";
@@ -196,9 +199,9 @@ namespace CourseworkAtCollege
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button creatingButton;
+        private System.Windows.Forms.Button changingButton;
+        private System.Windows.Forms.Button DeletingButton;
         private System.Windows.Forms.Button exit_button;
         private System.Windows.Forms.DataGridViewTextBoxColumn clietId;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstName;

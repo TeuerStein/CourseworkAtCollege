@@ -45,7 +45,27 @@ namespace CourseworkAtCollege
             client.typeOfCar = typeOfCar;
 
             DB dataBase = new DB();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `client` (`FirstName`, `LastName`, `FatherName`, `PassportData`, `EndOfContract`, `PhoneNumber`, `TypeOfCar`) VALUES (@firstName, @lastName, @fatherName, @passport, @endOfContract, @phoneNumber, @typeOfCar);", dataBase.getConnection());
+
+            string commandForDataBase  = 
+                "INSERT INTO `client` (" +
+                    "`FirstName`, " +
+                    "`LastName`, " +
+                    "`FatherName`, " +
+                    "`PassportData`, " +
+                    "`EndOfContract`, " +
+                    "`PhoneNumber`, " +
+                    "`TypeOfCar`" +
+                ") " +
+                "VALUES (" +
+                    "@firstName, " +
+                    "@lastName, " +
+                    "@fatherName, " +
+                    "@passport, " +
+                    "@endOfContract, " +
+                    "@phoneNumber, " +
+                    "@typeOfCar" +
+                ");";
+            MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection());
 
             command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = client.firstName;
             command.Parameters.Add("@lastName", MySqlDbType.VarChar).Value = client.lastName;

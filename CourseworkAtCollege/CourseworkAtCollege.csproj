@@ -72,6 +72,12 @@
     <Compile Include="Views\AllInfoAboutOrders.Designer.cs">
       <DependentUpon>AllInfoAboutOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ChangingObjectPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ChangingObjectPage.Designer.cs">
+      <DependentUpon>ChangingObjectPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ResultOfOrdering.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,7 +99,7 @@
     <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SupportingFiles\MenuStrip.cs" />
+    <Compile Include="MethodsWhatOftenCalled\MenuStrip.cs" />
     <EmbeddedResource Include="Views\AutoCollection.resx">
       <DependentUpon>AutoCollection.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AllInfoAboutOrders.resx">
       <DependentUpon>AllInfoAboutOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ChangingObjectPage.resx">
+      <DependentUpon>ChangingObjectPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ResultOfOrdering.resx">
       <DependentUpon>ResultOfOrdering.cs</DependentUpon>
@@ -141,8 +150,6 @@
     <Content Include="Resources\photo_2020-11-07_14-41-244.png" />
     <Content Include="Resources\photo_2020-11-07_14-41-311.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

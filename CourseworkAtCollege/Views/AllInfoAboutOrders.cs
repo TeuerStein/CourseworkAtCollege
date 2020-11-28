@@ -93,13 +93,13 @@ namespace CourseworkAtCollege
                 string commandForDataBase =
                     "UPDATE client" +
                     "SET" +
-                        "FirstName = '@firstName'," +
-                        "LastName = '@lastName'," +
-                        "FatherName = '@fatherName'," +
-                        "PassportData = '@passport'," +
-                        "EndOfContract = '@endOfContract'," +
-                        "PhoneNumber = '@phoneNumber'," +
-                        "TypeOfCar = '@typeOfCar'" +
+                        "FirstName = `@firstName`," +
+                        "LastName = `@lastName`," +
+                        "FatherName = `@fatherName`," +
+                        "PassportData = `@passport`," +
+                        "EndOfContract = `@endOfContract`," +
+                        "PhoneNumber = `@phoneNumber`," +
+                        "TypeOfCar = `@typeOfCar`" +
                     "WHERE" +
                         "idClient = @clientID; ";
                 MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection());
@@ -126,7 +126,9 @@ namespace CourseworkAtCollege
 
         private void exit_button_Click(object sender, EventArgs eventArgs)
         {
+            // Кнопка для закриття програми
 
+            this.Close();
         }
 
         private void AllInfoAboutOrders_Load(object sender, EventArgs e)
@@ -144,7 +146,7 @@ namespace CourseworkAtCollege
             
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs eventArgs)
         {
             string resultOfSearch = textBox1.Text;
 
@@ -153,10 +155,17 @@ namespace CourseworkAtCollege
 
             try
             {
-                string commandForDataBase = "Select * from client where FirstName=@nameOfSearching";
+                string commandForDataBase;
+
+                if (textBox1.Text == null)
+                {
+                    commandForDataBase = "select * from client;";
+                } else {
+                    commandForDataBase = "Select * from client where FirstName like '" + textBox1.Text + "%' ;";
+                }
                 MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection());
 
-                command.Parameters.Add("@nameOfSearching", MySqlDbType.VarChar).Value = resultOfSearch;
+                dataGridView1.Rows.Clear();
 
                 MySqlDataReader sqlReader = command.ExecuteReader();
 
@@ -198,6 +207,28 @@ namespace CourseworkAtCollege
                 dataBase.closeConnection();
             }
 
+        }
+
+        private void creatingButton_Click(object sender, EventArgs eventArgs)
+        {
+            this.Hide();
+
+            OrderedNewCar orderedNewCar = new OrderedNewCar();
+            orderedNewCar.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs eventArgs)
+        {
+            Client selectedObject = dataGridView1.SelectedRows[0].DataBoundItem as Client;
+            if(selectedObject == null) {
+                Console.WriteLine();
+            } else {
+                this.Hide();
+
+                ChangingObjectPage changingObjectPage = new ChangingObjectPage();
+                changingObjectPage.selectedObject = selectedObject;
+                changingObjectPage.Show();
+            }
         }
     }
 }

@@ -58,6 +58,7 @@ namespace CourseworkAtCollege
             this.OrderedCars.TabIndex = 1;
             this.OrderedCars.Text = "Орендовані авто";
             this.OrderedCars.UseVisualStyleBackColor = true;
+            this.OrderedCars.Click += new System.EventHandler(this.OrderedCars_Click);
             // 
             // ListsOfOrdering
             // 

@@ -38,5 +38,13 @@ namespace CourseworkAtCollege
             BasePage basePage = new BasePage();
             basePage.Show();
         }
+
+        private void OrderedCars_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            OrderedCars orderedCars = new OrderedCars();
+            orderedCars.Show();
+        }
     }
 }

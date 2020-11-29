@@ -20,6 +20,11 @@ namespace CourseworkAtCollege
             InitializeComponent();
         }
 
+        private void textForTypeOfCarComboBox(object sender, EventArgs eventArgs)
+        {
+            typeOfCarComboBox.Text = typeOfCar;
+        }
+
         private void firstNameBox_TextChanged(object sender, EventArgs eventArgs) { }
 
         private void lastNameBox_TextChanged(object sender, EventArgs eventArgs) { }
@@ -36,6 +41,7 @@ namespace CourseworkAtCollege
 
         private void ordered_button_Click(object sender, EventArgs eventArgs)
         {
+
             client.FirstName = firstNameBox.Text;
             client.LastName = lastNameBox.Text;
             client.FatherName = fatherNameBox.Text;
@@ -81,6 +87,8 @@ namespace CourseworkAtCollege
 
             dataBase.closeConnection();
 
+            this.Hide();
+
             ResultOfOrdering resultOfOrderingVariable = new ResultOfOrdering();
             resultOfOrderingVariable.Show();
         }
@@ -95,6 +103,19 @@ namespace CourseworkAtCollege
         private void OrderedNewCar_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void typeOfCarComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mainPage_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            BasePage basePage = new BasePage();
+            basePage.Show();
         }
     }
 }

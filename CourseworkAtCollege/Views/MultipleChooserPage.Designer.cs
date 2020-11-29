@@ -36,6 +36,7 @@ namespace CourseworkAtCollege
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainPage_button = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,11 +99,22 @@ namespace CourseworkAtCollege
             this.DescriptionToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.DescriptionToolStripMenuItem.Text = "Довідка";
             // 
+            // mainPage_button
+            // 
+            this.mainPage_button.Location = new System.Drawing.Point(357, 402);
+            this.mainPage_button.Name = "mainPage_button";
+            this.mainPage_button.Size = new System.Drawing.Size(75, 23);
+            this.mainPage_button.TabIndex = 7;
+            this.mainPage_button.Text = "Головна";
+            this.mainPage_button.UseVisualStyleBackColor = true;
+            this.mainPage_button.Click += new System.EventHandler(this.mainPage_button_Click);
+            // 
             // MultipleChooserPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 451);
+            this.Controls.Add(this.mainPage_button);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.ListsOfOrdering);
             this.Controls.Add(this.OrderedCars);
@@ -125,5 +137,6 @@ namespace CourseworkAtCollege
         private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DescriptionToolStripMenuItem;
+        private System.Windows.Forms.Button mainPage_button;
     }
 }

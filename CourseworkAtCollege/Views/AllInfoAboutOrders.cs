@@ -219,22 +219,43 @@ namespace CourseworkAtCollege
 
         private void changingButton_Click(object sender, EventArgs eventArgs)
         {
-            Client selectedObject = dataGridView1.SelectedRows[0].DataBoundItem as Client;
-            int clientID = selectedObject.idClient;
+            int clientID = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value);
 
-            foreach (DataGridViewRow row in this.dataGridView1.SelectedRows)
-            {
-                Client cust = row.DataBoundItem as Client;
-                if (cust != null)
-                {
-                    this.Hide();
+            this.Hide();
 
-                    ChangingObjectPage changingObjectPage = new ChangingObjectPage();
-                    changingObjectPage.selectedObject = cust;
-                    changingObjectPage.clientID = clientID;
-                    changingObjectPage.Show();
-                }
-            }
+            ChangingObjectPage changingObjectPage = new ChangingObjectPage();
+
+            changingObjectPage.clientID = clientID;
+            changingObjectPage.Show();
+        }
+
+        private void mainPage_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            BasePage basePage = new BasePage();
+            basePage.Show();
+        }
+
+        private void deletingButton_Click(object sender, EventArgs e)
+        {
+            int clientID = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value);
+
+            DB dataBase = new DB();
+            dataBase.openConnection();
+
+            string commandForDataBase = "DELETE FROM client WHERE idClient = @idClient";
+            MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection());
+
+            command.Parameters.Add("@idClient", MySqlDbType.Int32).Value = clientID;
+
+            dataBase.closeConnection();
+
+            MessageBox.Show(clientID.ToString(), "test", MessageBoxButtons.OK);
+
+            this.Hide();
+            AllInfoAboutOrders allInfoAboutOrders = new AllInfoAboutOrders();
+            allInfoAboutOrders.Show();
         }
     }
 }

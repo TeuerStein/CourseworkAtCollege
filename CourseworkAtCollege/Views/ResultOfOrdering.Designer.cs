@@ -36,7 +36,6 @@ namespace CourseworkAtCollege
             this.telephoneNumber = new System.Windows.Forms.Label();
             this.dateOfTheEndOfTheContract = new System.Windows.Forms.Label();
             this.mainPage_button = new System.Windows.Forms.Button();
-            this.edit_button = new System.Windows.Forms.Button();
             this.exit_button = new System.Windows.Forms.Button();
             this.typeOfCar = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -97,23 +96,13 @@ namespace CourseworkAtCollege
             // 
             // mainPage_button
             // 
-            this.mainPage_button.Location = new System.Drawing.Point(180, 349);
+            this.mainPage_button.Location = new System.Drawing.Point(202, 349);
             this.mainPage_button.Name = "mainPage_button";
             this.mainPage_button.Size = new System.Drawing.Size(75, 23);
             this.mainPage_button.TabIndex = 6;
             this.mainPage_button.Text = "Головна";
             this.mainPage_button.UseVisualStyleBackColor = true;
             this.mainPage_button.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // edit_button
-            // 
-            this.edit_button.Location = new System.Drawing.Point(362, 349);
-            this.edit_button.Name = "edit_button";
-            this.edit_button.Size = new System.Drawing.Size(75, 23);
-            this.edit_button.TabIndex = 7;
-            this.edit_button.Text = "Редагувати";
-            this.edit_button.UseVisualStyleBackColor = true;
-            this.edit_button.Click += new System.EventHandler(this.button2_Click);
             // 
             // exit_button
             // 
@@ -141,7 +130,6 @@ namespace CourseworkAtCollege
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.typeOfCar);
             this.Controls.Add(this.exit_button);
-            this.Controls.Add(this.edit_button);
             this.Controls.Add(this.mainPage_button);
             this.Controls.Add(this.dateOfTheEndOfTheContract);
             this.Controls.Add(this.telephoneNumber);
@@ -166,7 +154,6 @@ namespace CourseworkAtCollege
         private System.Windows.Forms.Label telephoneNumber;
         private System.Windows.Forms.Label dateOfTheEndOfTheContract;
         private System.Windows.Forms.Button mainPage_button;
-        private System.Windows.Forms.Button edit_button;
         private System.Windows.Forms.Button exit_button;
         private System.Windows.Forms.Label typeOfCar;
     }

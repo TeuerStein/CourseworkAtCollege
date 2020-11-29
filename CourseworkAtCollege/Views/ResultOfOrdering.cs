@@ -30,12 +30,10 @@ namespace CourseworkAtCollege
 
         private void button1_Click(object sender, EventArgs eventArgs)
         {
+            this.Hide();
 
-        }
-
-        private void button2_Click(object sender, EventArgs eventArgs)
-        {
-
+            BasePage basePage = new BasePage();
+            basePage.Show();
         }
 
         private void button3_Click(object sender, EventArgs eventArgs)

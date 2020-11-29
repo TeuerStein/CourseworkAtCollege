@@ -30,5 +30,13 @@ namespace CourseworkAtCollege
             AllInfoAboutOrders allInfoAboutOrders = new AllInfoAboutOrders();
             allInfoAboutOrders.Show();
         }
+
+        private void mainPage_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            BasePage basePage = new BasePage();
+            basePage.Show();
+        }
     }
 }

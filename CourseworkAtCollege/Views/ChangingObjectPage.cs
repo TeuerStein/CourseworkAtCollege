@@ -87,22 +87,22 @@ namespace CourseworkAtCollege
             client.PassportData = passportDataBox.Text;
             client.EndOfContract = dateOfTheEndOfTheContractBox.Text;
             client.PhoneNumber = phoneNumberBox.Text;
-            // client.typeOfCar = typeOfCar;
+            client.TypeOfCar = typeOfCarComboBox.Text;
 
             DB dataBase = new DB();
 
             string commandForDataBase =
-                "UPDATE client" +
-                "SET" +
-                    "FirstName = 'My'," +
-                    "LastName = 'Berem'," +
-                    "FatherName = 'Erysalim'," +
-                    "PassportData = 'Segodnia'," +
-                    "EndOfContract = 'AAAAAAAAA'," +
-                    "PhoneNumber = 'Xrest'," +
-                    "TypeOfCar = 'SlavaIsysy'" +
-                "WHERE" +
-                    "idClient = 1;";
+                "UPDATE client " +
+                "SET " +
+                    "FirstName = @firstName, " +
+                    "LastName = @lastName, " +
+                    "FatherName = @fatherName, " +
+                    "PassportData = @passport, " +
+                    "EndOfContract = @passport, " +
+                    "PhoneNumber = @endOfContract, " +
+                    "TypeOfCar = @typeOfCar " +
+                "WHERE " +
+                    "idClient = @idClient;";
             MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection());
 
             command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = client.FirstName;
@@ -112,6 +112,7 @@ namespace CourseworkAtCollege
             command.Parameters.Add("@endOfContract", MySqlDbType.VarChar).Value = client.EndOfContract;
             command.Parameters.Add("@phoneNumber", MySqlDbType.VarChar).Value = client.PhoneNumber;
             command.Parameters.Add("@typeOfCar", MySqlDbType.VarChar).Value = client.TypeOfCar;
+            command.Parameters.Add("@idClient", MySqlDbType.VarChar).Value = clientID;
 
             dataBase.openConnection();
 
@@ -119,13 +120,31 @@ namespace CourseworkAtCollege
 
             dataBase.closeConnection();
 
-            ResultOfOrdering resultOfOrderingVariable = new ResultOfOrdering();
-            resultOfOrderingVariable.Show();
+            MessageBox.Show("Зміни було записано", "Успіх!", MessageBoxButtons.OK);
+
+            this.Hide();
+            AllInfoAboutOrders allInfoAboutOrders = new AllInfoAboutOrders();
+            allInfoAboutOrders.Show();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs eventArgs)
         {
 
+        }
+
+        private void exit_button_Click_1(object sender, EventArgs e)
+        {
+            // Кнопка для закриття програми
+
+            this.Close();
+        }
+
+        private void mainPage_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            BasePage basePage = new BasePage();
+            basePage.Show();
         }
     }
 }

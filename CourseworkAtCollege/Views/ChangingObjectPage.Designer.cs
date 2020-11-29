@@ -45,6 +45,7 @@ namespace CourseworkAtCollege
             this.label1 = new System.Windows.Forms.Label();
             this.typeOfCarComboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.mainPage_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // exit_button
@@ -55,6 +56,7 @@ namespace CourseworkAtCollege
             this.exit_button.TabIndex = 27;
             this.exit_button.Text = "Вихід";
             this.exit_button.UseVisualStyleBackColor = true;
+            this.exit_button.Click += new System.EventHandler(this.exit_button_Click_1);
             // 
             // ordered_button
             // 
@@ -104,20 +106,20 @@ namespace CourseworkAtCollege
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(286, 271);
+            this.label6.Location = new System.Drawing.Point(286, 267);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 13);
+            this.label6.Size = new System.Drawing.Size(46, 13);
             this.label6.TabIndex = 20;
-            this.label6.Text = "Дата закінчення оренди";
+            this.label6.Text = "Телфон";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(286, 222);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.Size = new System.Drawing.Size(130, 13);
             this.label5.TabIndex = 19;
-            this.label5.Text = "Телефон";
+            this.label5.Text = "Дата закінчення оренди";
             // 
             // label4
             // 
@@ -164,7 +166,8 @@ namespace CourseworkAtCollege
             // 
             // typeOfCarComboBox
             // 
-            this.typeOfCarComboBox.FormattingEnabled = true;
+            this.typeOfCarComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.typeOfCarComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.typeOfCarComboBox.Items.AddRange(new object[] {
             "Економ клас",
             "Середній клас",
@@ -185,11 +188,22 @@ namespace CourseworkAtCollege
             this.label7.TabIndex = 29;
             this.label7.Text = "Тип машини: ";
             // 
+            // mainPage_button
+            // 
+            this.mainPage_button.Location = new System.Drawing.Point(366, 364);
+            this.mainPage_button.Name = "mainPage_button";
+            this.mainPage_button.Size = new System.Drawing.Size(75, 23);
+            this.mainPage_button.TabIndex = 30;
+            this.mainPage_button.Text = "Головна";
+            this.mainPage_button.UseVisualStyleBackColor = true;
+            this.mainPage_button.Click += new System.EventHandler(this.mainPage_button_Click);
+            // 
             // ChangingObjectPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mainPage_button);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.typeOfCarComboBox);
             this.Controls.Add(this.exit_button);
@@ -208,7 +222,6 @@ namespace CourseworkAtCollege
             this.Controls.Add(this.label1);
             this.Name = "ChangingObjectPage";
             this.Text = "ChangingObjectPage";
-            this.Load += new System.EventHandler(this.ChangingObjectPage_Load);
             this.Load += new System.EventHandler(this.oldInfoAboutObject);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -233,5 +246,6 @@ namespace CourseworkAtCollege
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox typeOfCarComboBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button mainPage_button;
     }
 }

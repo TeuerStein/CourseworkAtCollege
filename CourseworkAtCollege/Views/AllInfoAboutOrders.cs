@@ -77,13 +77,13 @@ namespace CourseworkAtCollege
 
         private void ChanginObject(string selectedObject)
         {
-            client.firstName = null; // some firstName
-            client.lastName = null; // some lastName
-            client.fatherName = null; // some fatherName
-            client.passportData = null; // some passportData
-            client.dateOfTheEndOfTheContract = null; // some dateOfTheEndOfTheContract
-            client.phoneNumber = null; // some phoneNumber
-            client.typeOfCar = null; // some typeOfCar
+            client.FirstName = null; // some firstName
+            client.LastName = null; // some lastName
+            client.FatherName = null; // some fatherName
+            client.PassportData = null; // some passportData
+            client.EndOfContract = null; // some dateOfTheEndOfTheContract
+            client.PhoneNumber = null; // some phoneNumber
+            client.TypeOfCar = null; // some typeOfCar
 
             DB dataBase = new DB();
             dataBase.openConnection();
@@ -104,14 +104,14 @@ namespace CourseworkAtCollege
                         "idClient = @clientID; ";
                 MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection());
 
-                command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = client.firstName;
-                command.Parameters.Add("@lastName", MySqlDbType.VarChar).Value = client.lastName;
-                command.Parameters.Add("@fatherName", MySqlDbType.VarChar).Value = client.fatherName;
-                command.Parameters.Add("@passport", MySqlDbType.VarChar).Value = client.passportData;
-                command.Parameters.Add("@endOfContract", MySqlDbType.VarChar).Value = client.dateOfTheEndOfTheContract;
-                command.Parameters.Add("@phoneNumber", MySqlDbType.VarChar).Value = client.phoneNumber;
-                command.Parameters.Add("@typeOfCar", MySqlDbType.VarChar).Value = client.typeOfCar;
-                command.Parameters.Add("@clientID", MySqlDbType.Int32).Value = client.clientId;
+                command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = client.FirstName;
+                command.Parameters.Add("@lastName", MySqlDbType.VarChar).Value = client.LastName;
+                command.Parameters.Add("@fatherName", MySqlDbType.VarChar).Value = client.FatherName;
+                command.Parameters.Add("@passport", MySqlDbType.VarChar).Value = client.PassportData;
+                command.Parameters.Add("@endOfContract", MySqlDbType.VarChar).Value = client.EndOfContract;
+                command.Parameters.Add("@phoneNumber", MySqlDbType.VarChar).Value = client.PhoneNumber;
+                command.Parameters.Add("@typeOfCar", MySqlDbType.VarChar).Value = client.TypeOfCar;
+                command.Parameters.Add("@clientID", MySqlDbType.Int32).Value = client.idClient;
 
             }
             catch (MySqlException exception)
@@ -217,17 +217,23 @@ namespace CourseworkAtCollege
             orderedNewCar.Show();
         }
 
-        private void button2_Click(object sender, EventArgs eventArgs)
+        private void changingButton_Click(object sender, EventArgs eventArgs)
         {
             Client selectedObject = dataGridView1.SelectedRows[0].DataBoundItem as Client;
-            if(selectedObject == null) {
-                Console.WriteLine();
-            } else {
-                this.Hide();
+            int clientID = selectedObject.idClient;
 
-                ChangingObjectPage changingObjectPage = new ChangingObjectPage();
-                changingObjectPage.selectedObject = selectedObject;
-                changingObjectPage.Show();
+            foreach (DataGridViewRow row in this.dataGridView1.SelectedRows)
+            {
+                Client cust = row.DataBoundItem as Client;
+                if (cust != null)
+                {
+                    this.Hide();
+
+                    ChangingObjectPage changingObjectPage = new ChangingObjectPage();
+                    changingObjectPage.selectedObject = cust;
+                    changingObjectPage.clientID = clientID;
+                    changingObjectPage.Show();
+                }
             }
         }
     }

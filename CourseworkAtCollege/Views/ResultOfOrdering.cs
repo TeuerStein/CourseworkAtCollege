@@ -19,13 +19,13 @@ namespace CourseworkAtCollege
 
         private void Labels_Load(object sender, EventArgs eventArgs)
         {
-            firstName.Text = "Ім'я: " + OrderedNewCar.client.firstName;
-            lastName.Text = "Прізвище: " + OrderedNewCar.client.lastName;
-            fatherName.Text = "По батькові: " + OrderedNewCar.client.fatherName;
-            passportData.Text = "Паспорт: " + OrderedNewCar.client.passportData;
-            telephoneNumber.Text = "Номер телефону: " + OrderedNewCar.client.phoneNumber;
-            dateOfTheEndOfTheContract.Text = "Дата завершення контракту: " + OrderedNewCar.client.dateOfTheEndOfTheContract;
-            typeOfCar.Text = "Тип машини: " + OrderedNewCar.client.typeOfCar;
+            firstName.Text = "Ім'я: " + OrderedNewCar.client.FirstName;
+            lastName.Text = "Прізвище: " + OrderedNewCar.client.LastName;
+            fatherName.Text = "По батькові: " + OrderedNewCar.client.FatherName;
+            passportData.Text = "Паспорт: " + OrderedNewCar.client.PassportData;
+            telephoneNumber.Text = "Номер телефону: " + OrderedNewCar.client.PhoneNumber;
+            dateOfTheEndOfTheContract.Text = "Дата завершення контракту: " + OrderedNewCar.client.EndOfContract;
+            typeOfCar.Text = "Тип машини: " + OrderedNewCar.client.TypeOfCar;
         }
 
         private void button1_Click(object sender, EventArgs eventArgs)

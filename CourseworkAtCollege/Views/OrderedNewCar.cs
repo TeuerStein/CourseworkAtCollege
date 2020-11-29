@@ -36,13 +36,13 @@ namespace CourseworkAtCollege
 
         private void ordered_button_Click(object sender, EventArgs eventArgs)
         {
-            client.firstName = firstNameBox.Text;
-            client.lastName = lastNameBox.Text;
-            client.fatherName = fatherNameBox.Text;
-            client.passportData = passportDataBox.Text;
-            client.dateOfTheEndOfTheContract = dateOfTheEndOfTheContractBox.Text;
-            client.phoneNumber = phoneNumberBox.Text;
-            client.typeOfCar = typeOfCar;
+            client.FirstName = firstNameBox.Text;
+            client.LastName = lastNameBox.Text;
+            client.FatherName = fatherNameBox.Text;
+            client.PassportData = passportDataBox.Text;
+            client.EndOfContract = dateOfTheEndOfTheContractBox.Text;
+            client.PhoneNumber = phoneNumberBox.Text;
+            client.TypeOfCar = typeOfCar;
 
             DB dataBase = new DB();
 
@@ -67,13 +67,13 @@ namespace CourseworkAtCollege
                 ");";
             MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection());
 
-            command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = client.firstName;
-            command.Parameters.Add("@lastName", MySqlDbType.VarChar).Value = client.lastName;
-            command.Parameters.Add("@fatherName", MySqlDbType.VarChar).Value = client.fatherName;
-            command.Parameters.Add("@passport", MySqlDbType.VarChar).Value = client.passportData;
-            command.Parameters.Add("@endOfContract", MySqlDbType.VarChar).Value = client.dateOfTheEndOfTheContract;
-            command.Parameters.Add("@phoneNumber", MySqlDbType.VarChar).Value = client.phoneNumber;
-            command.Parameters.Add("@typeOfCar", MySqlDbType.VarChar).Value = client.typeOfCar;
+            command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = client.FirstName;
+            command.Parameters.Add("@lastName", MySqlDbType.VarChar).Value = client.LastName;
+            command.Parameters.Add("@fatherName", MySqlDbType.VarChar).Value = client.FatherName;
+            command.Parameters.Add("@passport", MySqlDbType.VarChar).Value = client.PassportData;
+            command.Parameters.Add("@endOfContract", MySqlDbType.VarChar).Value = client.EndOfContract;
+            command.Parameters.Add("@phoneNumber", MySqlDbType.VarChar).Value = client.PhoneNumber;
+            command.Parameters.Add("@typeOfCar", MySqlDbType.VarChar).Value = client.TypeOfCar;
 
             dataBase.openConnection();
 

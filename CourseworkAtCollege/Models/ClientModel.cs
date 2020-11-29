@@ -10,20 +10,20 @@ namespace CourseworkAtCollege
     {
 
         // Основні змінні класа
-        public int clientId;
+        public int idClient;
 
-        public string firstName;
+        public string FirstName;
 
-        public string lastName;
+        public string LastName;
 
-        public string fatherName;
+        public string FatherName;
 
-        public string passportData;
+        public string PassportData;
 
-        public string phoneNumber;
+        public string EndOfContract;
 
-        public string dateOfTheEndOfTheContract;
+        public string PhoneNumber;
 
-        public string typeOfCar;
+        public string TypeOfCar;
     }
 }

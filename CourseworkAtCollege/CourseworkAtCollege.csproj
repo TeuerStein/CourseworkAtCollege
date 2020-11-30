@@ -105,7 +105,6 @@
     <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MethodsWhatOftenCalled\MenuStrip.cs" />
     <EmbeddedResource Include="Views\AutoCollection.resx">
       <DependentUpon>AutoCollection.cs</DependentUpon>
     </EmbeddedResource>

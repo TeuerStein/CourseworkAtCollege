@@ -34,14 +34,21 @@ namespace CourseworkAtCollege
             this.second_car = new System.Windows.Forms.PictureBox();
             this.third_car = new System.Windows.Forms.PictureBox();
             this.four_car = new System.Windows.Forms.PictureBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.text_for_first_car = new System.Windows.Forms.Label();
             this.text_for_second_car = new System.Windows.Forms.Label();
             this.text_for_third_car = new System.Windows.Forms.Label();
             this.text_for_four_car = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.орендованіАвтоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.списокЗамовленьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.вихідToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.новеЗамовленняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.проПрограмуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.first_car)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.second_car)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.third_car)).BeginInit();
@@ -93,37 +100,6 @@ namespace CourseworkAtCollege
             this.four_car.TabStop = false;
             this.four_car.Click += new System.EventHandler(this.four_car_Click);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.FileToolStripMenuItem,
-            this.ViewToolStripMenuItem,
-            this.DescriptionToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(804, 24);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // FileToolStripMenuItem
-            // 
-            this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
-            this.FileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.FileToolStripMenuItem.Text = "Файл";
-            // 
-            // ViewToolStripMenuItem
-            // 
-            this.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem";
-            this.ViewToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.ViewToolStripMenuItem.Text = "Вид";
-            // 
-            // DescriptionToolStripMenuItem
-            // 
-            this.DescriptionToolStripMenuItem.Name = "DescriptionToolStripMenuItem";
-            this.DescriptionToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.DescriptionToolStripMenuItem.Text = "Довідка";
-            // 
             // text_for_first_car
             // 
             this.text_for_first_car.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
@@ -164,16 +140,100 @@ namespace CourseworkAtCollege
             this.text_for_four_car.TabIndex = 8;
             this.text_for_four_car.Text = "Преміум клас";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileToolStripMenuItem,
+            this.ViewToolStripMenuItem,
+            this.DescriptionToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(804, 24);
+            this.menuStrip1.TabIndex = 9;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // FileToolStripMenuItem
+            // 
+            this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.орендованіАвтоToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.списокЗамовленьToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.вихідToolStripMenuItem});
+            this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.FileToolStripMenuItem.Text = "Файл";
+            // 
+            // орендованіАвтоToolStripMenuItem
+            // 
+            this.орендованіАвтоToolStripMenuItem.Name = "орендованіАвтоToolStripMenuItem";
+            this.орендованіАвтоToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.орендованіАвтоToolStripMenuItem.Text = "Орендовані авто";
+            this.орендованіАвтоToolStripMenuItem.Click += new System.EventHandler(this.orderedCarsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // списокЗамовленьToolStripMenuItem
+            // 
+            this.списокЗамовленьToolStripMenuItem.Name = "списокЗамовленьToolStripMenuItem";
+            this.списокЗамовленьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.списокЗамовленьToolStripMenuItem.Text = "Список замовлень";
+            this.списокЗамовленьToolStripMenuItem.Click += new System.EventHandler(this.AllInfoAboutOrdersToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
+            // вихідToolStripMenuItem
+            // 
+            this.вихідToolStripMenuItem.Name = "вихідToolStripMenuItem";
+            this.вихідToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.вихідToolStripMenuItem.Text = "Вихід";
+            this.вихідToolStripMenuItem.Click += new System.EventHandler(this.exit_button_Click);
+            // 
+            // ViewToolStripMenuItem
+            // 
+            this.ViewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.новеЗамовленняToolStripMenuItem});
+            this.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem";
+            this.ViewToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.ViewToolStripMenuItem.Text = "Вид";
+            // 
+            // новеЗамовленняToolStripMenuItem
+            // 
+            this.новеЗамовленняToolStripMenuItem.Name = "новеЗамовленняToolStripMenuItem";
+            this.новеЗамовленняToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.новеЗамовленняToolStripMenuItem.Text = "Нове замовлення";
+            this.новеЗамовленняToolStripMenuItem.Click += new System.EventHandler(this.OrderedNewCarToolStripMenuItem_Click);
+            // 
+            // DescriptionToolStripMenuItem
+            // 
+            this.DescriptionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.проПрограмуToolStripMenuItem});
+            this.DescriptionToolStripMenuItem.Name = "DescriptionToolStripMenuItem";
+            this.DescriptionToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.DescriptionToolStripMenuItem.Text = "Довідка";
+            // 
+            // проПрограмуToolStripMenuItem
+            // 
+            this.проПрограмуToolStripMenuItem.Name = "проПрограмуToolStripMenuItem";
+            this.проПрограмуToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.проПрограмуToolStripMenuItem.Text = "Про програму";
+            // 
             // AutoCollection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 451);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.text_for_four_car);
             this.Controls.Add(this.text_for_third_car);
             this.Controls.Add(this.text_for_second_car);
             this.Controls.Add(this.text_for_first_car);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.four_car);
             this.Controls.Add(this.third_car);
             this.Controls.Add(this.second_car);
@@ -197,13 +257,20 @@ namespace CourseworkAtCollege
         private System.Windows.Forms.PictureBox second_car;
         private System.Windows.Forms.PictureBox third_car;
         private System.Windows.Forms.PictureBox four_car;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ViewToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem DescriptionToolStripMenuItem;
         private System.Windows.Forms.Label text_for_first_car;
         private System.Windows.Forms.Label text_for_third_car;
         private System.Windows.Forms.Label text_for_four_car;
         private System.Windows.Forms.Label text_for_second_car;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem орендованіАвтоToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem списокЗамовленьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem вихідToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ViewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem новеЗамовленняToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DescriptionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem проПрограмуToolStripMenuItem;
     }
 }

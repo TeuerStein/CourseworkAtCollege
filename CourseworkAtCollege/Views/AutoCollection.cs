@@ -17,11 +17,6 @@ namespace CourseworkAtCollege
             InitializeComponent();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs eventArgsVariable)
-        {
-
-        }
-
         // Зображення з подією при кліку мишки
         private void first_car_Click(object sender, EventArgs eventArgsVariable)
         {
@@ -54,6 +49,40 @@ namespace CourseworkAtCollege
             OrderedNewCar orderNewCar = new OrderedNewCar();
             orderNewCar.typeOfCar = "Преміум клас";
             orderNewCar.Show();
+        }
+
+        private void orderedCarsToolStripMenuItem_Click(object sender, EventArgs eventArgs)
+        {
+            // Кнопка для переходу на сторінку замовлень
+
+            this.Hide();
+            OrderedCars orderedCars = new OrderedCars();
+            orderedCars.Show();
+        }
+
+        private void AllInfoAboutOrdersToolStripMenuItem_Click(object sender, EventArgs eventArgs)
+        {
+            // Кнопка для переходу на сторінку перегляду замовлених автомобілів
+
+            this.Hide();
+            AllInfoAboutOrders allInfoAboutOrders = new AllInfoAboutOrders();
+            allInfoAboutOrders.Show();
+        }
+
+        private void OrderedNewCarToolStripMenuItem_Click(object sender, EventArgs eventArgs)
+        {
+            // Кнопка для переходу на сторінку створення замовлення
+
+            this.Hide();
+            OrderedNewCar orderedNewCar = new OrderedNewCar();
+            orderedNewCar.Show();
+        }
+
+        private void exit_button_Click(object sender, EventArgs eventArgs)
+        {
+            // Кнопка для закриття програми
+
+            this.Close();
         }
     }
 }

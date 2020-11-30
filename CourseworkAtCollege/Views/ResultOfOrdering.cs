@@ -19,6 +19,9 @@ namespace CourseworkAtCollege
 
         private void Labels_Load(object sender, EventArgs eventArgs)
         {
+            // Виведення інформації про замовлення
+            // для перегляду форми на наявність помилок
+
             firstName.Text = "Ім'я: " + OrderedNewCar.client.FirstName;
             lastName.Text = "Прізвище: " + OrderedNewCar.client.LastName;
             fatherName.Text = "По батькові: " + OrderedNewCar.client.FatherName;
@@ -28,17 +31,47 @@ namespace CourseworkAtCollege
             typeOfCar.Text = "Тип машини: " + OrderedNewCar.client.TypeOfCar;
         }
 
-        private void button1_Click(object sender, EventArgs eventArgs)
+        private void mainPageButton_Click(object sender, EventArgs eventArgs)
         {
-            this.Hide();
+            // Кнопка для перенесення на головне меню
 
+            this.Hide();
             BasePage basePage = new BasePage();
             basePage.Show();
         }
 
-        private void button3_Click(object sender, EventArgs eventArgs)
+        private void exitButton_Click(object sender, EventArgs eventArgs)
         {
+            // Кнопка для виходу з програми
+
             this.Close();
+        }
+
+        private void orderedCarsToolStripMenuItem_Click(object sender, EventArgs eventArgs)
+        {
+            // Кнопка для переходу на сторінку замовлень
+
+            this.Hide();
+            OrderedCars orderedCars = new OrderedCars();
+            orderedCars.Show();
+        }
+
+        private void AllInfoAboutOrdersToolStripMenuItem_Click(object sender, EventArgs eventArgs)
+        {
+            // Кнопка для переходу на сторінку перегляду замовлених автомобілів
+
+            this.Hide();
+            AllInfoAboutOrders allInfoAboutOrders = new AllInfoAboutOrders();
+            allInfoAboutOrders.Show();
+        }
+
+        private void OrderedNewCarToolStripMenuItem_Click(object sender, EventArgs eventArgs)
+        {
+            // Кнопка для переходу на сторінку створення замовлення
+
+            this.Hide();
+            OrderedNewCar orderedNewCar = new OrderedNewCar();
+            orderedNewCar.Show();
         }
     }
 }

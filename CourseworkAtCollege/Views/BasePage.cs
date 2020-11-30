@@ -42,5 +42,32 @@ namespace CourseworkAtCollege
 
             this.Close();
         }
+
+        private void orderedCarsToolStripMenuItem_Click(object sender, EventArgs eventArgs)
+        {
+            // Кнопка для переходу на сторінку замовлень
+
+            this.Hide();
+            OrderedCars orderedCars = new OrderedCars();
+            orderedCars.Show();
+        }
+
+        private void AllInfoAboutOrdersToolStripMenuItem_Click(object sender, EventArgs eventArgs)
+        {
+            // Кнопка для переходу на сторінку перегляду замовлених автомобілів
+
+            this.Hide();
+            AllInfoAboutOrders allInfoAboutOrders = new AllInfoAboutOrders();
+            allInfoAboutOrders.Show();
+        }
+
+        private void OrderedNewCarToolStripMenuItem_Click(object sender, EventArgs eventArgs)
+        {
+            // Кнопка для переходу на сторінку створення замовлення
+
+            this.Hide();
+            OrderedNewCar orderedNewCar = new OrderedNewCar();
+            orderedNewCar.Show();
+        }
     }
 }

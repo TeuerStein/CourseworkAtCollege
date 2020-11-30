@@ -13,6 +13,9 @@ namespace CourseworkAtCollege
 {
     public partial class OrderedNewCar : Form
     {
+
+        // Ініціалізація змінної, що зберігає 
+        // інформацію про вибраний автомобіль
         public string typeOfCar;
 
         public OrderedNewCar()
@@ -22,36 +25,40 @@ namespace CourseworkAtCollege
 
         private void textForTypeOfCarComboBox(object sender, EventArgs eventArgs)
         {
+            // Попереднє присвоєння для typeOfCarComboBox
+            // в залежності від вибраного раніше типу автомобілів
+
             typeOfCarComboBox.Text = typeOfCar;
         }
 
-        private void firstNameBox_TextChanged(object sender, EventArgs eventArgs) { }
-
-        private void lastNameBox_TextChanged(object sender, EventArgs eventArgs) { }
-
-        private void fatherNameBox_TextChanged(object sender, EventArgs eventArgs) { }
-
-        private void passportDataBox_TextChanged(object sender, EventArgs eventArgs) { }
-
-        private void phoneNumberBox_TextChanged(object sender, EventArgs eventArgs) { }
-
-        private void dateOfTheEndOfTheContractBox_TextChanged(object sender, EventArgs eventArgs) { }
-
+        // Ініціалізація змінної за типом моделі клієнта
         public static Client client = new Client();
 
         private void ordered_button_Click(object sender, EventArgs eventArgs)
         {
+            // Кнопка завершення замовлення
+            // та запису даних до бази даних
 
+            // Присвоєння значень з полей для вводу інформації
+            // до змінних моделі
             client.FirstName = firstNameBox.Text;
             client.LastName = lastNameBox.Text;
             client.FatherName = fatherNameBox.Text;
             client.PassportData = passportDataBox.Text;
             client.EndOfContract = dateOfTheEndOfTheContractBox.Text;
             client.PhoneNumber = phoneNumberBox.Text;
-            client.TypeOfCar = typeOfCar;
+            if(typeOfCar == null) {
+                // Перевірка змінної на наявність значення
 
+                client.TypeOfCar = typeOfCarComboBox.Text;
+            } else {
+                client.TypeOfCar = typeOfCar;
+            }
+
+            // Ініціалізація змінної за типом класа для бази даних
             DB dataBase = new DB();
 
+            // Створення запиту до бази даних
             string commandForDataBase  = 
                 "INSERT INTO `client` (" +
                     "`FirstName`, " +
@@ -71,8 +78,12 @@ namespace CourseworkAtCollege
                     "@phoneNumber, " +
                     "@typeOfCar" +
                 ");";
+
+            // Ініціалізація змінної, що використовується 
+            // для передачі запиту до бази даних
             MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection());
 
+            // Передача всіх значень в запит для бази даних
             command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = client.FirstName;
             command.Parameters.Add("@lastName", MySqlDbType.VarChar).Value = client.LastName;
             command.Parameters.Add("@fatherName", MySqlDbType.VarChar).Value = client.FatherName;
@@ -81,14 +92,17 @@ namespace CourseworkAtCollege
             command.Parameters.Add("@phoneNumber", MySqlDbType.VarChar).Value = client.PhoneNumber;
             command.Parameters.Add("@typeOfCar", MySqlDbType.VarChar).Value = client.TypeOfCar;
 
+            // Відкриття з'єднання із SQL сервером
             dataBase.openConnection();
 
+            // Перевірка на помилки при записі значень
             if(command.ExecuteNonQuery() == 1) { }
 
+            // Закриття з'єднання із SQL сервером
             dataBase.closeConnection();
 
+            // Перенаправлення на наступну сторінку
             this.Hide();
-
             ResultOfOrdering resultOfOrderingVariable = new ResultOfOrdering();
             resultOfOrderingVariable.Show();
         }
@@ -100,22 +114,40 @@ namespace CourseworkAtCollege
             this.Close();
         }
 
-        private void OrderedNewCar_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void typeOfCarComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void mainPage_button_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            // Кнопка для перенесення на головне меню
 
+            this.Hide();
             BasePage basePage = new BasePage();
             basePage.Show();
+        }
+
+        private void orderedCarsToolStripMenuItem_Click(object sender, EventArgs eventArgs)
+        {
+            // Кнопка для переходу на сторінку замовлень
+
+            this.Hide();
+            OrderedCars orderedCars = new OrderedCars();
+            orderedCars.Show();
+        }
+
+        private void AllInfoAboutOrdersToolStripMenuItem_Click(object sender, EventArgs eventArgs)
+        {
+            // Кнопка для переходу на сторінку перегляду замовлених автомобілів
+
+            this.Hide();
+            AllInfoAboutOrders allInfoAboutOrders = new AllInfoAboutOrders();
+            allInfoAboutOrders.Show();
+        }
+
+        private void OrderedNewCarToolStripMenuItem_Click(object sender, EventArgs eventArgs)
+        {
+            // Кнопка для переходу на сторінку створення замовлення
+
+            this.Hide();
+            OrderedNewCar orderedNewCar = new OrderedNewCar();
+            orderedNewCar.Show();
         }
     }
 }

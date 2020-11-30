@@ -21,27 +21,38 @@ namespace CourseworkAtCollege
             GettingAllObjectsFromDataBase();
         }
 
-        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs eventArgs)
-        {
-
-        }
-
         private void GettingAllObjectsFromDataBase()
         {
+            // Метод для виведення всієї інформації
+            // про замовлення з бази даних
+            // до таблиці (тобто до dataGridView)
+
+            // Ініціалізація змінної за типом класа для бази даних
             DB dataBase = new DB();
+
+            // Відкриття з'єднання із SQL сервером
             dataBase.openConnection();
 
             try
             {
+                // Створення запиту до бази даних
                 string commandForDataBase = "select * from client;";
+
+                // Ініціалізація змінної, що використовується 
+                // для передачі запиту до бази даних
                 MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection());
 
+                // Ініціалізація змінної для роботи 
+                // із об'єктами, переданими із бази даних
                 MySqlDataReader sqlReader = command.ExecuteReader();
 
+                // Ініціалізація змінної для вміщення об'єктів із бази даних
                 List<string[]> objectsFromDataBase = new List<string[]>();
 
                 while (sqlReader.Read())
                 {
+                    // Процес присвоєння одного об'єкта за другим в масив
+
                     objectsFromDataBase.Add(new string[8]);
 
                     objectsFromDataBase[objectsFromDataBase.Count - 1][0] = sqlReader[0].ToString();
@@ -54,74 +65,33 @@ namespace CourseworkAtCollege
                     objectsFromDataBase[objectsFromDataBase.Count - 1][7] = sqlReader[7].ToString();
                 }
 
+                // Завершення роботи змінної для роботи із об'єктами
                 sqlReader.Close();
 
                 try
                 {
+                    // Передача всіх отриманих об'єктів до таблиці (тобто до dataGridView)
+
                     foreach (string[] singleObjectFromDataBaseForEach in objectsFromDataBase)
                         dataGridView1.Rows.Add(singleObjectFromDataBaseForEach);
-                } catch
-                {
-                    Console.WriteLine("You have problems with dataGridView");
+                } catch {
+
+                    // Повернення помилки в логи консолі 
+                    // для подальшого виправлення можливих помилок
+                    Console.WriteLine("You have some problems with dataGridView");
                 }
 
             } catch(MySqlException exception) {
+
+                // Повернення помилки в логи консолі 
+                // для подальшого виправлення можливих помилок
                 Console.WriteLine(exception.Message);
             } finally {
+
+                // Закриття з'єднання із SQL сервером
                 dataBase.closeConnection();
             }
 
-        }
-
-        public static Client client = new Client();
-
-        private void ChanginObject(string selectedObject)
-        {
-            client.FirstName = null; // some firstName
-            client.LastName = null; // some lastName
-            client.FatherName = null; // some fatherName
-            client.PassportData = null; // some passportData
-            client.EndOfContract = null; // some dateOfTheEndOfTheContract
-            client.PhoneNumber = null; // some phoneNumber
-            client.TypeOfCar = null; // some typeOfCar
-
-            DB dataBase = new DB();
-            dataBase.openConnection();
-
-            try
-            {
-                string commandForDataBase =
-                    "UPDATE client" +
-                    "SET" +
-                        "FirstName = `@firstName`," +
-                        "LastName = `@lastName`," +
-                        "FatherName = `@fatherName`," +
-                        "PassportData = `@passport`," +
-                        "EndOfContract = `@endOfContract`," +
-                        "PhoneNumber = `@phoneNumber`," +
-                        "TypeOfCar = `@typeOfCar`" +
-                    "WHERE" +
-                        "idClient = @clientID; ";
-                MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection());
-
-                command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = client.FirstName;
-                command.Parameters.Add("@lastName", MySqlDbType.VarChar).Value = client.LastName;
-                command.Parameters.Add("@fatherName", MySqlDbType.VarChar).Value = client.FatherName;
-                command.Parameters.Add("@passport", MySqlDbType.VarChar).Value = client.PassportData;
-                command.Parameters.Add("@endOfContract", MySqlDbType.VarChar).Value = client.EndOfContract;
-                command.Parameters.Add("@phoneNumber", MySqlDbType.VarChar).Value = client.PhoneNumber;
-                command.Parameters.Add("@typeOfCar", MySqlDbType.VarChar).Value = client.TypeOfCar;
-                command.Parameters.Add("@clientID", MySqlDbType.Int32).Value = client.idClient;
-
-            }
-            catch (MySqlException exception)
-            {
-                Console.WriteLine(exception.Message);
-            }
-            finally
-            {
-                dataBase.closeConnection();
-            }
         }
 
         private void exit_button_Click(object sender, EventArgs eventArgs)
@@ -131,48 +101,57 @@ namespace CourseworkAtCollege
             this.Close();
         }
 
-        private void AllInfoAboutOrders_Load(object sender, EventArgs e)
+        private void searchButton_Click(object sender, EventArgs eventArgs)
         {
 
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button4_Click(object sender, EventArgs eventArgs)
-        {
+            // Ініціалізація змінної для передачі 
+            // введеного значення до рядка пошуку
             string resultOfSearch = textBox1.Text;
 
+            // Ініціалізація змінної за типом класа для бази даних
             DB dataBase = new DB();
+
+            // Відкриття з'єднання із SQL сервером
             dataBase.openConnection();
 
             try
             {
+                
+                // Ініціалізація змінної для 
+                // передачі запитів до бази даних
                 string commandForDataBase;
 
                 if (textBox1.Text == null)
                 {
+
+                    // Якщо поле пошуку пусте, 
+                    // то будуть виведені всі об'єкти
                     commandForDataBase = "select * from client;";
                 } else {
+
+                    // Створення запиту за, введеними у рядок пошуку, даними
                     commandForDataBase = "Select * from client where FirstName like '" + textBox1.Text + "%' ;";
                 }
+
+                // Ініціалізація змінної, що використовується 
+                // для передачі запиту до бази даних
                 MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection());
 
+                // Очищуємо попередню інформацію
+                // з таблиці
                 dataGridView1.Rows.Clear();
 
+                // Ініціалізація змінної для роботи 
+                // із об'єктами, переданими із бази даних
                 MySqlDataReader sqlReader = command.ExecuteReader();
 
+                // Ініціалізація змінної для вміщення об'єктів із бази даних
                 List<string[]> objectsFromDataBase = new List<string[]>();
 
                 while (sqlReader.Read())
                 {
+                    // Процес присвоєння одного об'єкта за другим в масив
+
                     objectsFromDataBase.Add(new string[8]);
 
                     objectsFromDataBase[objectsFromDataBase.Count - 1][0] = sqlReader[0].ToString();
@@ -185,25 +164,32 @@ namespace CourseworkAtCollege
                     objectsFromDataBase[objectsFromDataBase.Count - 1][7] = sqlReader[7].ToString();
                 }
 
+                // Завершення роботи змінної для роботи із об'єктами
                 sqlReader.Close();
 
                 try
                 {
+                    // Передача всіх отриманих об'єктів до таблиці (тобто до dataGridView)
+
                     foreach (string[] singleObjectFromDataBaseForEach in objectsFromDataBase)
                         dataGridView1.Rows.Add(singleObjectFromDataBaseForEach);
                 }
                 catch
                 {
+
+                    // Повернення помилки в логи консолі 
+                    // для подальшого виправлення можливих помилок
                     Console.WriteLine("You have problems with dataGridView");
                 }
 
-            }
-            catch (MySqlException exception)
-            {
+            } catch (MySqlException exception) {
+
+                // Повернення помилки в логи консолі 
+                // для подальшого виправлення можливих помилок
                 Console.WriteLine(exception.Message);
-            }
-            finally
-            {
+            } finally {
+
+                // Закриття з'єднання із SQL сервером
                 dataBase.closeConnection();
             }
 
@@ -211,51 +197,104 @@ namespace CourseworkAtCollege
 
         private void creatingButton_Click(object sender, EventArgs eventArgs)
         {
-            this.Hide();
+            // Кнопка для перенесення користувача на 
+            // сторінку створення нового замовлення
 
+            this.Hide();
             OrderedNewCar orderedNewCar = new OrderedNewCar();
             orderedNewCar.Show();
         }
 
         private void changingButton_Click(object sender, EventArgs eventArgs)
         {
+            // Кнопка для перенесення користувача на 
+            // сторінку редагування вибраного замовлення
+
             int clientID = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value);
 
             this.Hide();
 
             ChangingObjectPage changingObjectPage = new ChangingObjectPage();
-
             changingObjectPage.clientID = clientID;
             changingObjectPage.Show();
         }
 
-        private void mainPage_button_Click(object sender, EventArgs e)
+        private void mainPage_button_Click(object sender, EventArgs eventArgs)
         {
-            this.Hide();
+            // Кнопка для перенесення на головне меню
 
+            this.Hide();
             BasePage basePage = new BasePage();
             basePage.Show();
         }
 
-        private void deletingButton_Click(object sender, EventArgs e)
+        private void deletingButton_Click(object sender, EventArgs eventArgs)
         {
+            // Кнопка для видалення вибраного замовлення
+
+            // Ініціалізація змінної для передачі ID вибраного замовлення
             int clientID = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value);
 
+            // Ініціалізація змінної за типом класа для бази даних
             DB dataBase = new DB();
+
+            // Створення запиту до бази даних
+            string commandForDataBase = string.Format("DELETE FROM client WHERE idClient = {0}", clientID);
+
+            // Відкриття з'єднання із SQL сервером
             dataBase.openConnection();
 
-            string commandForDataBase = "DELETE FROM client WHERE idClient = @idClient";
-            MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection());
+            using ( MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection()) ){
+                try
+                {
 
-            command.Parameters.Add("@idClient", MySqlDbType.Int32).Value = clientID;
+                    // Видалення, вибраного користувачем,
+                    // замовлення з бази даних
+                    command.ExecuteNonQuery();
+                } catch (MySqlException mySQLException) {
 
+                    // При помилці видалення - 
+                    // передати повідомлення про саму помилку
+                    Exception error = new Exception("Program wasn't deleted this object!", mySQLException);
+                    throw error;
+                }
+            }
+
+            // Закриття з'єднання із SQL сервером
             dataBase.closeConnection();
 
-            MessageBox.Show(clientID.ToString(), "test", MessageBoxButtons.OK);
+            // Перенесення користувача на сторінку
+            // із таблицею (тобто dataGridView)
+            this.Hide();
+            AllInfoAboutOrders allInfoAboutOrders = new AllInfoAboutOrders();
+            allInfoAboutOrders.Show();
+        }
+
+        private void orderedCarsToolStripMenuItem_Click(object sender, EventArgs eventArgs)
+        {
+            // Кнопка для переходу на сторінку замовлень
+
+            this.Hide();
+            OrderedCars orderedCars = new OrderedCars();
+            orderedCars.Show();
+        }
+
+        private void AllInfoAboutOrdersToolStripMenuItem_Click(object sender, EventArgs eventArgs)
+        {
+            // Кнопка для переходу на сторінку перегляду замовлених автомобілів
 
             this.Hide();
             AllInfoAboutOrders allInfoAboutOrders = new AllInfoAboutOrders();
             allInfoAboutOrders.Show();
+        }
+
+        private void OrderedNewCarToolStripMenuItem_Click(object sender, EventArgs eventArgs)
+        {
+            // Кнопка для переходу на сторінку створення замовлення
+
+            this.Hide();
+            OrderedNewCar orderedNewCar = new OrderedNewCar();
+            orderedNewCar.Show();
         }
     }
 }

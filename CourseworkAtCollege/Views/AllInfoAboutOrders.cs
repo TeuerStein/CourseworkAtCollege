@@ -36,20 +36,10 @@ namespace CourseworkAtCollege
             try
             {
                 // Створення запиту до бази даних
-                string commandForDataBase = 
-                    "select " +
-                        "idClient," +
-                        "FirstName," +
-                        "LastName," +
-                        "FatherName," +
-                        "PassportData," +
-                        "PhoneNumber," +
-                        "NameOfCar," +
-                        "StartOfContract," +
-                        "EndOfContract " +
-                    "from client inner join ( customer inner join contract on customer.idContract = contract.idContract ) " +
-                    "on " +
-                    "client.idClient = customer.idClient";
+                string commandForDataBase =
+                    "select  FirstName,LastName,FatherName,PassportData,PhoneNumber,NameOfCar,StartOfContract,EndOfContract from client inner join (customer inner join contract on customer.idContract = contract.idContract ) on client.idClient = customer.idClient; ";
+
+
 
                 // Ініціалізація змінної, що використовується 
                 // для передачі запиту до бази даних
@@ -166,7 +156,7 @@ namespace CourseworkAtCollege
                 {
                     // Процес присвоєння одного об'єкта за другим в масив
 
-                    objectsFromDataBase.Add(new string[8]);
+                    objectsFromDataBase.Add(new string[9]);
 
                     objectsFromDataBase[objectsFromDataBase.Count - 1][0] = sqlReader[0].ToString();
                     objectsFromDataBase[objectsFromDataBase.Count - 1][1] = sqlReader[1].ToString();

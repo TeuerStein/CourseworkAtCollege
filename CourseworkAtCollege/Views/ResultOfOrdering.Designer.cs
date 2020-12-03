@@ -49,6 +49,8 @@ namespace CourseworkAtCollege
             this.новеЗамовленняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.проПрограмуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nameOfCar = new System.Windows.Forms.Label();
+            this.dateOfTheStartOfTheContract = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,7 +102,7 @@ namespace CourseworkAtCollege
             // dateOfTheEndOfTheContract
             // 
             this.dateOfTheEndOfTheContract.AutoSize = true;
-            this.dateOfTheEndOfTheContract.Location = new System.Drawing.Point(383, 223);
+            this.dateOfTheEndOfTheContract.Location = new System.Drawing.Point(383, 256);
             this.dateOfTheEndOfTheContract.Name = "dateOfTheEndOfTheContract";
             this.dateOfTheEndOfTheContract.Size = new System.Drawing.Size(35, 13);
             this.dateOfTheEndOfTheContract.TabIndex = 5;
@@ -129,7 +131,7 @@ namespace CourseworkAtCollege
             // typeOfCar
             // 
             this.typeOfCar.AutoSize = true;
-            this.typeOfCar.Location = new System.Drawing.Point(383, 260);
+            this.typeOfCar.Location = new System.Drawing.Point(383, 293);
             this.typeOfCar.Name = "typeOfCar";
             this.typeOfCar.Size = new System.Drawing.Size(35, 13);
             this.typeOfCar.TabIndex = 9;
@@ -219,11 +221,31 @@ namespace CourseworkAtCollege
             this.проПрограмуToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.проПрограмуToolStripMenuItem.Text = "Про програму";
             // 
+            // nameOfCar
+            // 
+            this.nameOfCar.AutoSize = true;
+            this.nameOfCar.Location = new System.Drawing.Point(383, 329);
+            this.nameOfCar.Name = "nameOfCar";
+            this.nameOfCar.Size = new System.Drawing.Size(35, 13);
+            this.nameOfCar.TabIndex = 11;
+            this.nameOfCar.Text = "label1";
+            // 
+            // dateOfTheStartOfTheContract
+            // 
+            this.dateOfTheStartOfTheContract.AutoSize = true;
+            this.dateOfTheStartOfTheContract.Location = new System.Drawing.Point(383, 221);
+            this.dateOfTheStartOfTheContract.Name = "dateOfTheStartOfTheContract";
+            this.dateOfTheStartOfTheContract.Size = new System.Drawing.Size(35, 13);
+            this.dateOfTheStartOfTheContract.TabIndex = 12;
+            this.dateOfTheStartOfTheContract.Text = "label7";
+            // 
             // ResultOfOrdering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dateOfTheStartOfTheContract);
+            this.Controls.Add(this.nameOfCar);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.typeOfCar);
             this.Controls.Add(this.exit_button);
@@ -266,5 +288,7 @@ namespace CourseworkAtCollege
         private System.Windows.Forms.ToolStripMenuItem новеЗамовленняToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DescriptionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem проПрограмуToolStripMenuItem;
+        private System.Windows.Forms.Label nameOfCar;
+        private System.Windows.Forms.Label dateOfTheStartOfTheContract;
     }
 }

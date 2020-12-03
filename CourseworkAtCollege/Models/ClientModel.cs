@@ -20,10 +20,8 @@ namespace CourseworkAtCollege
 
         public string PassportData;
 
-        public string EndOfContract;
-
         public string PhoneNumber;
 
-        public string TypeOfCar;
+        public string NameOfCar;
     }
 }

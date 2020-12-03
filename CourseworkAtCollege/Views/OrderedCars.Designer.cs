@@ -30,10 +30,6 @@ namespace CourseworkAtCollege
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EndOfContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeOfCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -50,6 +46,10 @@ namespace CourseworkAtCollege
             this.новеЗамовленняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.проПрограмуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NameOfCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeOfCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndOfContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -58,34 +58,14 @@ namespace CourseworkAtCollege
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FirstName,
-            this.LastName,
+            this.NameOfCar,
+            this.TypeOfCar,
             this.EndOfContract,
-            this.TypeOfCar});
+            this.Status});
             this.dataGridView1.Location = new System.Drawing.Point(0, 75);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(800, 271);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // FirstName
-            // 
-            this.FirstName.HeaderText = "Ім\'я";
-            this.FirstName.Name = "FirstName";
-            // 
-            // LastName
-            // 
-            this.LastName.HeaderText = "Прізвище";
-            this.LastName.Name = "LastName";
-            // 
-            // EndOfContract
-            // 
-            this.EndOfContract.HeaderText = "Дата закінчення контракту";
-            this.EndOfContract.Name = "EndOfContract";
-            // 
-            // TypeOfCar
-            // 
-            this.TypeOfCar.HeaderText = "Клас машини";
-            this.TypeOfCar.Name = "TypeOfCar";
             // 
             // searchButton
             // 
@@ -217,6 +197,26 @@ namespace CourseworkAtCollege
             this.проПрограмуToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.проПрограмуToolStripMenuItem.Text = "Про програму";
             // 
+            // NameOfCar
+            // 
+            this.NameOfCar.HeaderText = "Автомобіль";
+            this.NameOfCar.Name = "NameOfCar";
+            // 
+            // TypeOfCar
+            // 
+            this.TypeOfCar.HeaderText = "Клас машини";
+            this.TypeOfCar.Name = "TypeOfCar";
+            // 
+            // EndOfContract
+            // 
+            this.EndOfContract.HeaderText = "Дата закінчення контракту";
+            this.EndOfContract.Name = "EndOfContract";
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Статус";
+            this.Status.Name = "Status";
+            // 
             // OrderedCars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,10 +242,6 @@ namespace CourseworkAtCollege
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EndOfContract;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypeOfCar;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
@@ -262,5 +258,9 @@ namespace CourseworkAtCollege
         private System.Windows.Forms.ToolStripMenuItem новеЗамовленняToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DescriptionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem проПрограмуToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameOfCar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeOfCar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EndOfContract;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
     }
 }

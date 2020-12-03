@@ -36,7 +36,20 @@ namespace CourseworkAtCollege
             try
             {
                 // Створення запиту до бази даних
-                string commandForDataBase = "select * from client;";
+                string commandForDataBase = 
+                    "select " +
+                        "idClient," +
+                        "FirstName," +
+                        "LastName," +
+                        "FatherName," +
+                        "PassportData," +
+                        "PhoneNumber," +
+                        "NameOfCar," +
+                        "StartOfContract," +
+                        "EndOfContract " +
+                    "from client inner join ( customer inner join contract on customer.idContract = contract.idContract ) " +
+                    "on " +
+                    "client.idClient = customer.idClient";
 
                 // Ініціалізація змінної, що використовується 
                 // для передачі запиту до бази даних
@@ -53,7 +66,7 @@ namespace CourseworkAtCollege
                 {
                     // Процес присвоєння одного об'єкта за другим в масив
 
-                    objectsFromDataBase.Add(new string[8]);
+                    objectsFromDataBase.Add(new string[9]);
 
                     objectsFromDataBase[objectsFromDataBase.Count - 1][0] = sqlReader[0].ToString();
                     objectsFromDataBase[objectsFromDataBase.Count - 1][1] = sqlReader[1].ToString();
@@ -62,7 +75,8 @@ namespace CourseworkAtCollege
                     objectsFromDataBase[objectsFromDataBase.Count - 1][4] = sqlReader[4].ToString();
                     objectsFromDataBase[objectsFromDataBase.Count - 1][5] = sqlReader[5].ToString();
                     objectsFromDataBase[objectsFromDataBase.Count - 1][6] = sqlReader[6].ToString();
-                    objectsFromDataBase[objectsFromDataBase.Count - 1][7] = sqlReader[7].ToString();
+                    objectsFromDataBase[objectsFromDataBase.Count - 1][7] = sqlReader[1].ToString();
+                    objectsFromDataBase[objectsFromDataBase.Count - 1][8] = sqlReader[2].ToString();
                 }
 
                 // Завершення роботи змінної для роботи із об'єктами
@@ -162,6 +176,7 @@ namespace CourseworkAtCollege
                     objectsFromDataBase[objectsFromDataBase.Count - 1][5] = sqlReader[5].ToString();
                     objectsFromDataBase[objectsFromDataBase.Count - 1][6] = sqlReader[6].ToString();
                     objectsFromDataBase[objectsFromDataBase.Count - 1][7] = sqlReader[7].ToString();
+                    objectsFromDataBase[objectsFromDataBase.Count - 1][8] = sqlReader[8].ToString();
                 }
 
                 // Завершення роботи змінної для роботи із об'єктами

@@ -87,8 +87,10 @@ namespace CourseworkAtCollege
             dataBase.closeConnection();
         }
 
-        // Ініціалізація змінної за типом моделі клієнта
+        // Ініціалізація змінних за типом моделі
         public static Client client = new Client();
+        public static AutoParkModel autoParkModel = new AutoParkModel();
+        public static ContractModel contractModel = new ContractModel();
 
         private void ordered_button_Click(object sender, EventArgs eventArgs)
         {
@@ -100,9 +102,9 @@ namespace CourseworkAtCollege
             client.LastName = lastNameBox.Text;
             client.FatherName = fatherNameBox.Text;
             client.PassportData = passportDataBox.Text;
-            client.EndOfContract = dateOfTheEndOfTheContractBox.Text;
+            contractModel.EndOfContract = dateOfTheEndOfTheContractBox.Text;
             client.PhoneNumber = phoneNumberBox.Text;
-            client.TypeOfCar = typeOfCarComboBox.Text;
+            autoParkModel.TypeOfCar = typeOfCarComboBox.Text;
 
             // Ініціалізація змінної за типом класа для бази даних
             DB dataBase = new DB();
@@ -130,9 +132,9 @@ namespace CourseworkAtCollege
             command.Parameters.Add("@lastName", MySqlDbType.VarChar).Value = client.LastName;
             command.Parameters.Add("@fatherName", MySqlDbType.VarChar).Value = client.FatherName;
             command.Parameters.Add("@passport", MySqlDbType.VarChar).Value = client.PassportData;
-            command.Parameters.Add("@endOfContract", MySqlDbType.VarChar).Value = client.EndOfContract;
+            command.Parameters.Add("@endOfContract", MySqlDbType.VarChar).Value = contractModel.EndOfContract;
             command.Parameters.Add("@phoneNumber", MySqlDbType.VarChar).Value = client.PhoneNumber;
-            command.Parameters.Add("@typeOfCar", MySqlDbType.VarChar).Value = client.TypeOfCar;
+            command.Parameters.Add("@typeOfCar", MySqlDbType.VarChar).Value = autoParkModel.TypeOfCar;
             command.Parameters.Add("@idClient", MySqlDbType.VarChar).Value = clientID;
 
             // Відкриття з'єднання із SQL сервером

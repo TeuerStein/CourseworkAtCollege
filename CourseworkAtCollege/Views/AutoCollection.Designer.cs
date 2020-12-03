@@ -167,31 +167,31 @@ namespace CourseworkAtCollege
             // орендованіАвтоToolStripMenuItem
             // 
             this.орендованіАвтоToolStripMenuItem.Name = "орендованіАвтоToolStripMenuItem";
-            this.орендованіАвтоToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.орендованіАвтоToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.орендованіАвтоToolStripMenuItem.Text = "Орендовані авто";
             this.орендованіАвтоToolStripMenuItem.Click += new System.EventHandler(this.orderedCarsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
             // 
             // списокЗамовленьToolStripMenuItem
             // 
             this.списокЗамовленьToolStripMenuItem.Name = "списокЗамовленьToolStripMenuItem";
-            this.списокЗамовленьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.списокЗамовленьToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.списокЗамовленьToolStripMenuItem.Text = "Список замовлень";
             this.списокЗамовленьToolStripMenuItem.Click += new System.EventHandler(this.AllInfoAboutOrdersToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(174, 6);
             // 
             // вихідToolStripMenuItem
             // 
             this.вихідToolStripMenuItem.Name = "вихідToolStripMenuItem";
-            this.вихідToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.вихідToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.вихідToolStripMenuItem.Text = "Вихід";
             this.вихідToolStripMenuItem.Click += new System.EventHandler(this.exit_button_Click);
             // 

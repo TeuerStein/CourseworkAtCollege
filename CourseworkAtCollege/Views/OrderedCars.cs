@@ -36,7 +36,7 @@ namespace CourseworkAtCollege
             {
 
                 // Створення запиту до бази даних
-                string commandForDataBase = "Select FirstName, LastName, EndOfContract, TypeOfCar from client ORDER BY TypeOfCar;";
+                string commandForDataBase = "Select NameOfCar, TypeOfCar, EndOfContract, Status from autopark ORDER BY Status;";
 
                 // Ініціалізація змінної, що використовується 
                 // для передачі запиту до бази даних

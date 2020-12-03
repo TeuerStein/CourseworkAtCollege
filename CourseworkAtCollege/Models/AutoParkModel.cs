@@ -10,52 +10,12 @@ namespace CourseworkAtCollege
     {
 
         // Основні змінні класа
-        private int idOfCar
-        {
-            set
-            {
-                if(value <= 0)
-                {
-                    throw new ArgumentException("Введіть дані. Поле не може бути порожнім.");
-                }
-                else idOfCar = value;
-            }
-        }
+        public int idCar;
 
-        private string carColor
-        {
-            set
-            {
-                if(value.Length <= 0)
-                {
-                    throw new ArgumentException("Введіть дані. Поле не може бути порожнім.");
-                }
-                else carColor = value;
-            }
-        }
-        private string carName
-        {
-            set
-            {
-                if(value.Length <= 0)
-                {
-                    throw new ArgumentException("Введіть дані. Поле не може бути порожнім.");
-                }
-                else carName = value;
-            }
-        }
+        public string TypeOfCar;
 
-        public AutoParkModel(
-            int idCarFromConstructor,
-            string colorCarFromConstructor,
-            string nameCarFromConstructor
-        )
-        {
-            // Конструктор класа
+        public string NameOfCar;
 
-            this.idOfCar = idCarFromConstructor;
-            this.carColor = colorCarFromConstructor;
-            this.carName = nameCarFromConstructor;
-        }
+        public string Status;
     }
 }

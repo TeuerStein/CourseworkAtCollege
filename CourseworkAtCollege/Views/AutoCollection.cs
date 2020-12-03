@@ -21,34 +21,34 @@ namespace CourseworkAtCollege
         private void first_car_Click(object sender, EventArgs eventArgsVariable)
         {
             this.Hide();
-            OrderedNewCar orderNewCar = new OrderedNewCar();
-            orderNewCar.typeOfCar = "Економ клас";
-            orderNewCar.Show();
+            AutoChooser autoChooser = new AutoChooser();
+            autoChooser.typeOfCar = "Економ клас";
+            autoChooser.Show();
         }
 
         private void second_car_Click(object sender, EventArgs eventArgsVariable)
         {
             this.Hide();
-            OrderedNewCar orderNewCar = new OrderedNewCar();
-            orderNewCar.typeOfCar = "Середній клас";
-            orderNewCar.Show();
+            AutoChooser autoChooser = new AutoChooser();
+            autoChooser.typeOfCar = "Середній клас";
+            autoChooser.Show();
         }
 
         private void third_car_Click(object sender, EventArgs eventArgsVariable)
         {
             this.Hide();
-            OrderedNewCar orderNewCar = new OrderedNewCar();
-            orderNewCar.typeOfCar = "Позашляховик";
-            orderNewCar.Show();
+            AutoChooser autoChooser = new AutoChooser();
+            autoChooser.typeOfCar = "Позашляховик";
+            autoChooser.Show();
 
         }
 
         private void four_car_Click(object sender, EventArgs eventArgsVariable)
         {
             this.Hide();
-            OrderedNewCar orderNewCar = new OrderedNewCar();
-            orderNewCar.typeOfCar = "Преміум клас";
-            orderNewCar.Show();
+            AutoChooser autoChooser = new AutoChooser();
+            autoChooser.typeOfCar = "Преміум клас";
+            autoChooser.Show();
         }
 
         private void orderedCarsToolStripMenuItem_Click(object sender, EventArgs eventArgs)

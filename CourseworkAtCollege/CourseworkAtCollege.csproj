@@ -54,6 +54,12 @@
     <Compile Include="Models\ContractModel.cs" />
     <Compile Include="Models\AutoParkModel.cs" />
     <Compile Include="Models\CustomersModel.cs" />
+    <Compile Include="Views\AutoChooser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AutoChooser.Designer.cs">
+      <DependentUpon>AutoChooser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\AutoCollection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Views\AutoChooser.resx">
+      <DependentUpon>AutoChooser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\AutoCollection.resx">
       <DependentUpon>AutoCollection.cs</DependentUpon>
     </EmbeddedResource>

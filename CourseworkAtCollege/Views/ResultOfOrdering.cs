@@ -27,8 +27,10 @@ namespace CourseworkAtCollege
             fatherName.Text = "По батькові: " + OrderedNewCar.client.FatherName;
             passportData.Text = "Паспорт: " + OrderedNewCar.client.PassportData;
             telephoneNumber.Text = "Номер телефону: " + OrderedNewCar.client.PhoneNumber;
-            dateOfTheEndOfTheContract.Text = "Дата завершення контракту: " + OrderedNewCar.client.EndOfContract;
-            typeOfCar.Text = "Тип машини: " + OrderedNewCar.client.TypeOfCar;
+            dateOfTheStartOfTheContract.Text = "Дата початку контракта: " + OrderedNewCar.contractModel.StartOfContract;
+            dateOfTheEndOfTheContract.Text = "Дата завершення контракта: " + OrderedNewCar.contractModel.EndOfContract;
+            typeOfCar.Text = "Тип машини: " + OrderedNewCar.autoParkModel.TypeOfCar;
+            nameOfCar.Text = "Машина: " + OrderedNewCar.client.NameOfCar;
         }
 
         private void mainPageButton_Click(object sender, EventArgs eventArgs)

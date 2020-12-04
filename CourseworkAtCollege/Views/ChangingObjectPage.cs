@@ -21,14 +21,15 @@ namespace CourseworkAtCollege
         // отримання ID із попередньої сторінки
         public int clientID;
 
-        // Ініціалізація змінних, що зберігає 
-        // інформацію про вибраний автомобіль
-        public string typeOfCar;
-        public string nameOfCar;
-
         public ChangingObjectPage()
         {
             InitializeComponent();
+
+            Load += new System.EventHandler(oldInfoAboutObject);
+
+            Load += new System.EventHandler(changingNamesOfCars);
+
+            Load += new System.EventHandler(oldInfoAboutObject);
         }
 
         private void oldInfoAboutObject(object sender, EventArgs eventArgs)
@@ -45,21 +46,11 @@ namespace CourseworkAtCollege
 
             // Створення запиту до бази даних
             string commandForDataBase =
-                "select " +
-                    "FirstName," +
-                     "LastName," +
-                     "FatherName," +
-                     "PassportData," +
-                     "StartOfContract," +
-                     "EndOfContract " +
-                     "PhoneNumber," +
-                     "TypeOfCar," +
-                     "NameOfCar," +
-                "from client left join (" +
-                    "customer left join contract on " +
-                        "customer.idContract = contract.idContract " +
-                ") " +
-                "on client.idClient = customer.idClient; ";
+                "select  FirstName,LastName,FatherName,PassportData,StartOfContract,EndOfContract,PhoneNumber,TypeOfCar,autopark.NameOfCar " +
+                "from(client inner join(customer inner join autopark " +
+                "on  customer.idCar = autopark.idCar)) inner join(customer c2 inner join contract " +
+                "on c2.idContract= contract.idContract " +
+                ") on client.idClient = customer.idClient;" ;
 
             // Ініціалізація змінної, що використовується 
             // для передачі запиту до бази даних
@@ -79,7 +70,7 @@ namespace CourseworkAtCollege
             {
                 // Процес присвоєння одного об'єкта за другим в масив
 
-                objectsFromDataBase.Add(new string[10]);
+                objectsFromDataBase.Add(new string[9]);
 
                 objectsFromDataBase[objectsFromDataBase.Count - 1][0] = sqlReader[0].ToString();
                 objectsFromDataBase[objectsFromDataBase.Count - 1][1] = sqlReader[1].ToString();
@@ -90,22 +81,21 @@ namespace CourseworkAtCollege
                 objectsFromDataBase[objectsFromDataBase.Count - 1][6] = sqlReader[6].ToString();
                 objectsFromDataBase[objectsFromDataBase.Count - 1][7] = sqlReader[7].ToString();
                 objectsFromDataBase[objectsFromDataBase.Count - 1][8] = sqlReader[8].ToString();
-                objectsFromDataBase[objectsFromDataBase.Count - 1][9] = sqlReader[9].ToString();
             }
 
             // Завершення роботи змінної для роботи із об'єктами
             sqlReader.Close();
 
             // Передача всіх отриманих об'єктів полям для вводу
-            firstNameBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][1];
-            lastNameBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][2];
-            fatherNameBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][3];
-            passportDataBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][4];
-            dateOfTheStartOfTheContractBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][5];
-            dateOfTheEndOfTheContractBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][6];
-            phoneNumberBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][7];
-            typeOfCarComboBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][8];
-            nameOfCarComboBox_1.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][9];
+            firstNameBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][0];
+            lastNameBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][1];
+            fatherNameBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][2];
+            passportDataBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][3];
+            dateOfTheStartOfTheContractBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][4];
+            dateOfTheEndOfTheContractBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][5];
+            phoneNumberBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][6];
+            typeOfCarComboBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][7];
+            nameOfCarComboBox_1.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][8];
 
             // Закриття з'єднання із SQL сервером
             dataBase.closeConnection();
@@ -129,39 +119,9 @@ namespace CourseworkAtCollege
             contractModel.StartOfContract = dateOfTheStartOfTheContractBox.Text;
             contractModel.EndOfContract = dateOfTheEndOfTheContractBox.Text;
             client.PhoneNumber = phoneNumberBox.Text;
-
-            if (typeOfCar == null)
-            {
-                // Перевірка змінної на наявність значення
-
-                autoParkModel.TypeOfCar = typeOfCarComboBox.Text;
-            }
-            else if (typeOfCarComboBox.Text != null)
-            {
-                autoParkModel.TypeOfCar = typeOfCarComboBox.Text;
-            }
-            else
-            {
-                autoParkModel.TypeOfCar = typeOfCar;
-            }
-
-            if (nameOfCar == null)
-            {
-                // Перевірка змінної на наявність значення
-
-                client.NameOfCar = nameOfCarComboBox_1.Text;
-                autoParkModel.NameOfCar = nameOfCarComboBox_1.Text;
-            }
-            else if (nameOfCarComboBox_1.Text != null)
-            {
-                client.NameOfCar = nameOfCarComboBox_1.Text;
-                autoParkModel.NameOfCar = nameOfCarComboBox_1.Text;
-            }
-            else
-            {
-                client.NameOfCar = nameOfCar;
-                autoParkModel.NameOfCar = nameOfCar;
-            }
+            autoParkModel.TypeOfCar = typeOfCarComboBox.Text;
+            client.NameOfCar = nameOfCarComboBox_1.Text;
+            autoParkModel.NameOfCar = nameOfCarComboBox_1.Text;
 
             // Ініціалізація змінної за типом класа для бази даних
             DB dataBase = new DB();
@@ -268,12 +228,9 @@ namespace CourseworkAtCollege
 
         private void nameOfCarComboBox_Click(object sender, EventArgs eventArgs)
         {
+            bool otherList = false;
 
-        }
-
-        private void changingNamesOfCars(object sender, EventArgs eventArgs)
-        {
-            if (typeOfCar == "Економ клас")
+            if (typeOfCarComboBox.Text == "Економ клас")
             {
                 nameOfCarComboBox_1.Items.Clear();
                 nameOfCarComboBox_1.Items.AddRange(new object[] {
@@ -282,7 +239,7 @@ namespace CourseworkAtCollege
                     "Mini Cooper Clubman",
                     "Suzuki Swift"});
             }
-            else if (typeOfCar == "Середній клас")
+            else if (typeOfCarComboBox.Text == "Середній клас")
             {
                 nameOfCarComboBox_1.Items.Clear();
                 nameOfCarComboBox_1.Items.AddRange(new object[] {
@@ -291,7 +248,7 @@ namespace CourseworkAtCollege
                     "BMW 520",
                     "Volkswagen Polo SE"});
             }
-            else if (typeOfCar == "Позашляховик")
+            else if (typeOfCarComboBox.Text == "Позашляховик")
             {
                 nameOfCarComboBox_1.Items.Clear();
                 nameOfCarComboBox_1.Items.AddRange(new object[] {
@@ -300,7 +257,64 @@ namespace CourseworkAtCollege
                     "Ford Explorer",
                     "Hyundai Tucson"});
             }
-            else if (typeOfCar == "Преміум клас")
+            else if (typeOfCarComboBox.Text == "Преміум клас")
+            {
+                nameOfCarComboBox_1.Items.Clear();
+                nameOfCarComboBox_1.Items.AddRange(new object[] {
+                    "Audi A6",
+                    "Mercedes-Benz С180",
+                    "Volkswagen Arteon R-line",
+                    "Skoda Suberb"});
+            }
+
+            for (int count = 0; count < 4; count++)
+            {
+                if (nameOfCarComboBox_1.Text == (nameOfCarComboBox_1.Items[count]).ToString())
+                {
+                    otherList = true;
+                    break;
+                }
+            }
+            if (otherList == false)
+            {
+                nameOfCarComboBox_1.Text = nameOfCarComboBox_1.Text;
+            }
+            else
+            {
+                nameOfCarComboBox_1.Text = (nameOfCarComboBox_1.Items[0]).ToString();
+            }
+        }
+
+        private void changingNamesOfCars(object sender, EventArgs eventArgs)
+        {
+            if (typeOfCarComboBox.Text == "Економ клас")
+            {
+                nameOfCarComboBox_1.Items.Clear();
+                nameOfCarComboBox_1.Items.AddRange(new object[] {
+                    "Fiat Abarth 500",
+                    "Volkswagen Suran",
+                    "Mini Cooper Clubman",
+                    "Suzuki Swift"});
+            }
+            else if (typeOfCarComboBox.Text == "Середній клас")
+            {
+                nameOfCarComboBox_1.Items.Clear();
+                nameOfCarComboBox_1.Items.AddRange(new object[] {
+                    "Toyota Corolla",
+                    "Honda Civic",
+                    "BMW 520",
+                    "Volkswagen Polo SE"});
+            }
+            else if (typeOfCarComboBox.Text == "Позашляховик")
+            {
+                nameOfCarComboBox_1.Items.Clear();
+                nameOfCarComboBox_1.Items.AddRange(new object[] {
+                    "BMX X6",
+                    "Audi Q3",
+                    "Ford Explorer",
+                    "Hyundai Tucson"});
+            }
+            else if (typeOfCarComboBox.Text == "Преміум клас")
             {
                 nameOfCarComboBox_1.Items.Clear();
                 nameOfCarComboBox_1.Items.AddRange(new object[] {

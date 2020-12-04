@@ -362,7 +362,6 @@ namespace CourseworkAtCollege
             this.Controls.Add(this.ordered_button);
             this.Name = "ChangingObjectPage";
             this.Text = "ChangingObjectPage";
-            this.Load += new System.EventHandler(this.oldInfoAboutObject);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

@@ -36,7 +36,10 @@ namespace CourseworkAtCollege
             {
 
                 // Створення запиту до бази даних
-                string commandForDataBase = "Select NameOfCar, TypeOfCar, EndOfContract, Status from autopark ORDER BY Status;";
+                string commandForDataBase = "select  autopark.NameOfCar,TypeOfCar,EndOfContract,Status " +
+                    "from(client inner join(customer inner join autopark " +
+                    "on  customer.idCar = autopark.idCar)) inner join(customer c2 inner join contract " +
+                    "on c2.idContract= contract.idContract ) on client.idClient = customer.idClient;";
 
                 // Ініціалізація змінної, що використовується 
                 // для передачі запиту до бази даних

@@ -37,9 +37,17 @@ namespace CourseworkAtCollege
             {
                 // Створення запиту до бази даних
                 string commandForDataBase =
-                    "select client.idClient, FirstName,LastName,FatherName,PassportData,PhoneNumber,NameOfCar,StartOfContract,EndOfContract from client left join (customer left join contract on customer.idContract = contract.idContract ) on client.idClient = customer.idClient; ";
-
-
+                    "select " +
+                        "client.idClient, " +
+                        "FirstName," +
+                        "LastName," +
+                        "FatherName," +
+                        "PassportData," +
+                        "PhoneNumber," +
+                        "NameOfCar," +
+                        "StartOfContract," +
+                        "EndOfContract " +
+                    "from client left join (customer left join contract on customer.idContract = contract.idContract ) on client.idClient = customer.idClient; ";
 
                 // Ініціалізація змінної, що використовується 
                 // для передачі запиту до бази даних

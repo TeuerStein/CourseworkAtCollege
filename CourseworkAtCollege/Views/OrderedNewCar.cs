@@ -146,7 +146,7 @@ namespace CourseworkAtCollege
             this.Close();
         }
 
-        private void mainPage_button_Click(object sender, EventArgs e)
+        private void mainPage_button_Click(object sender, EventArgs eventArgs)
         {
             // Кнопка для перенесення на головне меню
 

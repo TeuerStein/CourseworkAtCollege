@@ -95,24 +95,6 @@ namespace CourseworkAtCollege
             // Запис інформації до таблиці client
 
             // Створення запиту до бази даних
-            string testCommandForDataBase = 
-                "INSERT INTO `client` (" +
-                    "`FirstName`, " +
-                    "`LastName`, " +
-                    "`FatherName`, " +
-                    "`PassportData`, " +
-                    "`PhoneNumber`, " +
-                    "`NameOfCar`" +
-                ") " +
-                "VALUES (" +
-                    "@firstName, " +
-                    "@lastName, " +
-                    "@fatherName, " +
-                    "@passport, " +
-                    "@phoneNumber, " +
-                    "@nameOfCar" +
-                ");";
-
             string commandForDataBase =
                 "INSERT INTO client (`FirstName`,`LastName`,`FatherName`,`PassportData`,`PhoneNumber`,`NameOfCar`) " +
                 "VALUES(@firstName, @lastName, @fatherName, @passport, @phoneNumber, @nameOfCarClient); " +

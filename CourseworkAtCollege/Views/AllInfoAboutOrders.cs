@@ -37,7 +37,7 @@ namespace CourseworkAtCollege
             {
                 // Створення запиту до бази даних
                 string commandForDataBase =
-                    "select  FirstName,LastName,FatherName,PassportData,PhoneNumber,NameOfCar,StartOfContract,EndOfContract from client inner join (customer inner join contract on customer.idContract = contract.idContract ) on client.idClient = customer.idClient; ";
+                    "select client.idClient, FirstName,LastName,FatherName,PassportData,PhoneNumber,NameOfCar,StartOfContract,EndOfContract from client left join (customer left join contract on customer.idContract = contract.idContract ) on client.idClient = customer.idClient; ";
 
 
 
@@ -65,8 +65,8 @@ namespace CourseworkAtCollege
                     objectsFromDataBase[objectsFromDataBase.Count - 1][4] = sqlReader[4].ToString();
                     objectsFromDataBase[objectsFromDataBase.Count - 1][5] = sqlReader[5].ToString();
                     objectsFromDataBase[objectsFromDataBase.Count - 1][6] = sqlReader[6].ToString();
-                    objectsFromDataBase[objectsFromDataBase.Count - 1][7] = sqlReader[1].ToString();
-                    objectsFromDataBase[objectsFromDataBase.Count - 1][8] = sqlReader[2].ToString();
+                    objectsFromDataBase[objectsFromDataBase.Count - 1][7] = sqlReader[7].ToString();
+                    objectsFromDataBase[objectsFromDataBase.Count - 1][8] = sqlReader[8].ToString();
                 }
 
                 // Завершення роботи змінної для роботи із об'єктами
@@ -244,7 +244,12 @@ namespace CourseworkAtCollege
             DB dataBase = new DB();
 
             // Створення запиту до бази даних
-            string commandForDataBase = string.Format("DELETE FROM client WHERE idClient = {0}", clientID);
+            string commandForDataBase = string.Format(
+                "SET FOREIGN_KEY_CHECKS=0; " +
+                "delete from autopark where idCar = (select customer.idCar from customer where idClient = {0}); " +
+                "delete from contract where idContract = (select customer.idContract from customer where idClient = {0}); " +
+                "delete from customer where idClient = {0}; " +
+                "delete from client where idClient = {0};", clientID, clientID, clientID, clientID);
 
             // Відкриття з'єднання із SQL сервером
             dataBase.openConnection();

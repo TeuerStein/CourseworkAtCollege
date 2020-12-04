@@ -21,6 +21,11 @@ namespace CourseworkAtCollege
         // отримання ID із попередньої сторінки
         public int clientID;
 
+        // Ініціалізація змінних, що зберігає 
+        // інформацію про вибраний автомобіль
+        public string typeOfCar;
+        public string nameOfCar;
+
         public ChangingObjectPage()
         {
             InitializeComponent();
@@ -39,7 +44,22 @@ namespace CourseworkAtCollege
             dataBase.openConnection();
 
             // Створення запиту до бази даних
-            string commandForDataBase = "SELECT * FROM client WHERE  idClient = @idClient;";
+            string commandForDataBase =
+                "select " +
+                    "FirstName," +
+                     "LastName," +
+                     "FatherName," +
+                     "PassportData," +
+                     "StartOfContract," +
+                     "EndOfContract " +
+                     "PhoneNumber," +
+                     "TypeOfCar," +
+                     "NameOfCar," +
+                "from client left join (" +
+                    "customer left join contract on " +
+                        "customer.idContract = contract.idContract " +
+                ") " +
+                "on client.idClient = customer.idClient; ";
 
             // Ініціалізація змінної, що використовується 
             // для передачі запиту до бази даних
@@ -59,7 +79,7 @@ namespace CourseworkAtCollege
             {
                 // Процес присвоєння одного об'єкта за другим в масив
 
-                objectsFromDataBase.Add(new string[8]);
+                objectsFromDataBase.Add(new string[10]);
 
                 objectsFromDataBase[objectsFromDataBase.Count - 1][0] = sqlReader[0].ToString();
                 objectsFromDataBase[objectsFromDataBase.Count - 1][1] = sqlReader[1].ToString();
@@ -69,6 +89,8 @@ namespace CourseworkAtCollege
                 objectsFromDataBase[objectsFromDataBase.Count - 1][5] = sqlReader[5].ToString();
                 objectsFromDataBase[objectsFromDataBase.Count - 1][6] = sqlReader[6].ToString();
                 objectsFromDataBase[objectsFromDataBase.Count - 1][7] = sqlReader[7].ToString();
+                objectsFromDataBase[objectsFromDataBase.Count - 1][8] = sqlReader[8].ToString();
+                objectsFromDataBase[objectsFromDataBase.Count - 1][9] = sqlReader[9].ToString();
             }
 
             // Завершення роботи змінної для роботи із об'єктами
@@ -79,9 +101,11 @@ namespace CourseworkAtCollege
             lastNameBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][2];
             fatherNameBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][3];
             passportDataBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][4];
-            phoneNumberBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][5];
+            dateOfTheStartOfTheContractBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][5];
             dateOfTheEndOfTheContractBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][6];
-            typeOfCarComboBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][7];
+            phoneNumberBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][7];
+            typeOfCarComboBox.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][8];
+            nameOfCarComboBox_1.Text = objectsFromDataBase[objectsFromDataBase.Count - 1][9];
 
             // Закриття з'єднання із SQL сервером
             dataBase.closeConnection();
@@ -96,46 +120,89 @@ namespace CourseworkAtCollege
         {
             // Кнопка для зафіксування змін до бази даних
 
-            // Передача змінених даних до 
-            // змінних типу моделі клієнта
+            // Присвоєння значень з полей для вводу інформації
+            // до змінних моделі
             client.FirstName = firstNameBox.Text;
             client.LastName = lastNameBox.Text;
             client.FatherName = fatherNameBox.Text;
             client.PassportData = passportDataBox.Text;
+            contractModel.StartOfContract = dateOfTheStartOfTheContractBox.Text;
             contractModel.EndOfContract = dateOfTheEndOfTheContractBox.Text;
             client.PhoneNumber = phoneNumberBox.Text;
-            autoParkModel.TypeOfCar = typeOfCarComboBox.Text;
+
+            if (typeOfCar == null)
+            {
+                // Перевірка змінної на наявність значення
+
+                autoParkModel.TypeOfCar = typeOfCarComboBox.Text;
+            }
+            else if (typeOfCarComboBox.Text != null)
+            {
+                autoParkModel.TypeOfCar = typeOfCarComboBox.Text;
+            }
+            else
+            {
+                autoParkModel.TypeOfCar = typeOfCar;
+            }
+
+            if (nameOfCar == null)
+            {
+                // Перевірка змінної на наявність значення
+
+                client.NameOfCar = nameOfCarComboBox_1.Text;
+                autoParkModel.NameOfCar = nameOfCarComboBox_1.Text;
+            }
+            else if (nameOfCarComboBox_1.Text != null)
+            {
+                client.NameOfCar = nameOfCarComboBox_1.Text;
+                autoParkModel.NameOfCar = nameOfCarComboBox_1.Text;
+            }
+            else
+            {
+                client.NameOfCar = nameOfCar;
+                autoParkModel.NameOfCar = nameOfCar;
+            }
 
             // Ініціалізація змінної за типом класа для бази даних
             DB dataBase = new DB();
 
             // Створення запиту до бази даних
             string commandForDataBase =
-                "UPDATE client " +
-                "SET " +
+                "update autopark set " +
+                    "TypeOfCar = @typeOfCar, " +
+                    "NameOfCar = @nameOfCarAutoPark " +
+                "where idCar=(select customer.idCar from customer where idClient=@idClient);" +
+                "update contract set " +
+                    "StartOfContract = @startOfContract, " +
+                    "EndOfContract = @endOfContract " +
+                "where idContract = (select customer.idContract from customer where idClient = @idClient); " +
+                "update client set " +
                     "FirstName = @firstName, " +
                     "LastName = @lastName, " +
                     "FatherName = @fatherName, " +
                     "PassportData = @passport, " +
-                    "EndOfContract = @passport, " +
-                    "PhoneNumber = @endOfContract, " +
-                    "TypeOfCar = @typeOfCar " +
-                "WHERE " +
-                    "idClient = @idClient;";
+                    "PhoneNumber = @phoneNumber, " +
+                    "NameOfCar = @nameOfCarClient " +
+                "where idClient = @idClient;";
 
             // Ініціалізація змінної, що використовується 
             // для передачі запиту до бази даних
             MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection());
 
             // Передача всіх значень в запит для бази даних
+            command.Parameters.Add("@idClient", MySqlDbType.VarChar).Value = clientID;
             command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = client.FirstName;
             command.Parameters.Add("@lastName", MySqlDbType.VarChar).Value = client.LastName;
             command.Parameters.Add("@fatherName", MySqlDbType.VarChar).Value = client.FatherName;
             command.Parameters.Add("@passport", MySqlDbType.VarChar).Value = client.PassportData;
-            command.Parameters.Add("@endOfContract", MySqlDbType.VarChar).Value = contractModel.EndOfContract;
             command.Parameters.Add("@phoneNumber", MySqlDbType.VarChar).Value = client.PhoneNumber;
+            command.Parameters.Add("@nameOfCarClient", MySqlDbType.VarChar).Value = client.NameOfCar;
+
             command.Parameters.Add("@typeOfCar", MySqlDbType.VarChar).Value = autoParkModel.TypeOfCar;
-            command.Parameters.Add("@idClient", MySqlDbType.VarChar).Value = clientID;
+            command.Parameters.Add("@nameOfCarAutoPark", MySqlDbType.VarChar).Value = autoParkModel.NameOfCar;
+
+            command.Parameters.Add("@startOfContract", MySqlDbType.VarChar).Value = contractModel.StartOfContract;
+            command.Parameters.Add("@endOfContract", MySqlDbType.VarChar).Value = contractModel.EndOfContract;
 
             // Відкриття з'єднання із SQL сервером
             dataBase.openConnection();
@@ -197,6 +264,56 @@ namespace CourseworkAtCollege
             this.Hide();
             OrderedNewCar orderedNewCar = new OrderedNewCar();
             orderedNewCar.Show();
+        }
+
+        private void nameOfCarComboBox_Click(object sender, EventArgs eventArgs)
+        {
+
+        }
+
+        private void changingNamesOfCars(object sender, EventArgs eventArgs)
+        {
+            if (typeOfCar == "Економ клас")
+            {
+                nameOfCarComboBox_1.Items.Clear();
+                nameOfCarComboBox_1.Items.AddRange(new object[] {
+                    "Fiat Abarth 500",
+                    "Volkswagen Suran",
+                    "Mini Cooper Clubman",
+                    "Suzuki Swift"});
+            }
+            else if (typeOfCar == "Середній клас")
+            {
+                nameOfCarComboBox_1.Items.Clear();
+                nameOfCarComboBox_1.Items.AddRange(new object[] {
+                    "Toyota Corolla",
+                    "Honda Civic",
+                    "BMW 520",
+                    "Volkswagen Polo SE"});
+            }
+            else if (typeOfCar == "Позашляховик")
+            {
+                nameOfCarComboBox_1.Items.Clear();
+                nameOfCarComboBox_1.Items.AddRange(new object[] {
+                    "BMX X6",
+                    "Audi Q3",
+                    "Ford Explorer",
+                    "Hyundai Tucson"});
+            }
+            else if (typeOfCar == "Преміум клас")
+            {
+                nameOfCarComboBox_1.Items.Clear();
+                nameOfCarComboBox_1.Items.AddRange(new object[] {
+                    "Audi A6",
+                    "Mercedes-Benz С180",
+                    "Volkswagen Arteon R-line",
+                    "Skoda Suberb"});
+            }
+        }
+
+        private void typeOfCarComboBox_Click(object sender, EventArgs eventArgs)
+        {
+            nameOfCarComboBox_1.Text = null;
         }
     }
 }

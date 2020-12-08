@@ -138,7 +138,18 @@ namespace CourseworkAtCollege
 
                     // Якщо поле пошуку пусте, 
                     // то будуть виведені всі об'єкти
-                    commandForDataBase = "select * from client;";
+                    commandForDataBase =
+                    "select " +
+                        "client.idClient, " +
+                        "FirstName," +
+                        "LastName," +
+                        "FatherName," +
+                        "PassportData," +
+                        "PhoneNumber," +
+                        "NameOfCar," +
+                        "StartOfContract," +
+                        "EndOfContract " +
+                    "from client left join (customer left join contract on customer.idContract = contract.idContract ) on client.idClient = customer.idClient; ";
                 } else {
 
                     // Створення запиту за, введеними у рядок пошуку, даними

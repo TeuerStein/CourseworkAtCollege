@@ -58,13 +58,31 @@ namespace CourseworkAtCollege
 
             // Присвоєння значень з полей для вводу інформації
             // до змінних моделі
-            client.FirstName = firstNameBox.Text;
-            client.LastName = lastNameBox.Text;
-            client.FatherName = fatherNameBox.Text;
-            client.PassportData = passportDataBox.Text;
-            contractModel.StartOfContract = dateOfTheStartOfTheContractBox.Text;
-            contractModel.EndOfContract = dateOfTheEndOfTheContractBox.Text;
-            client.PhoneNumber = phoneNumberBox.Text;
+            if(
+                firstNameBox.Text != null && firstNameBox.Text != "" &&
+                lastNameBox.Text != null && lastNameBox.Text != "" &&
+                fatherNameBox.Text != null && fatherNameBox.Text != "" &&
+                passportDataBox.Text != null && passportDataBox.Text != "" &&
+                dateOfTheStartOfTheContractBox.Text != null && dateOfTheStartOfTheContractBox.Text != "" &&
+                dateOfTheEndOfTheContractBox.Text != null && dateOfTheEndOfTheContractBox.Text != "" &&
+                phoneNumberBox.Text != null && phoneNumberBox.Text != ""
+            )
+            {
+                client.FirstName = firstNameBox.Text;
+                client.LastName = lastNameBox.Text;
+                client.FatherName = fatherNameBox.Text;
+                client.PassportData = passportDataBox.Text;
+                contractModel.StartOfContract = dateOfTheStartOfTheContractBox.Text;
+                contractModel.EndOfContract = dateOfTheEndOfTheContractBox.Text;
+                client.PhoneNumber = phoneNumberBox.Text;
+            } else {
+                MessageBox.Show("Ви не вказали, як мінімум, одне із значень", "Помилка!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                this.Hide();
+                MultipleChooserPage multipleChooserPage = new MultipleChooserPage();
+                multipleChooserPage.Show();
+            }
 
             if(typeOfCar == null) {
                 // Перевірка змінної на наявність значення

@@ -112,16 +112,54 @@ namespace CourseworkAtCollege
 
             // Присвоєння значень з полей для вводу інформації
             // до змінних моделі
-            client.FirstName = firstNameBox.Text;
-            client.LastName = lastNameBox.Text;
-            client.FatherName = fatherNameBox.Text;
-            client.PassportData = passportDataBox.Text;
-            contractModel.StartOfContract = dateOfTheStartOfTheContractBox.Text;
-            contractModel.EndOfContract = dateOfTheEndOfTheContractBox.Text;
-            client.PhoneNumber = phoneNumberBox.Text;
-            autoParkModel.TypeOfCar = typeOfCarComboBox.Text;
-            client.NameOfCar = nameOfCarComboBox_1.Text;
-            autoParkModel.NameOfCar = nameOfCarComboBox_1.Text;
+            if (
+                firstNameBox.Text != null && firstNameBox.Text != "" &&
+                lastNameBox.Text != null && lastNameBox.Text != "" &&
+                fatherNameBox.Text != null && fatherNameBox.Text != "" &&
+                passportDataBox.Text != null && passportDataBox.Text != "" &&
+                dateOfTheStartOfTheContractBox.Text != null && dateOfTheStartOfTheContractBox.Text != "" &&
+                dateOfTheEndOfTheContractBox.Text != null && dateOfTheEndOfTheContractBox.Text != "" &&
+                phoneNumberBox.Text != null && phoneNumberBox.Text != ""
+            )
+            {
+                client.FirstName = firstNameBox.Text;
+                client.LastName = lastNameBox.Text;
+                client.FatherName = fatherNameBox.Text;
+                client.PassportData = passportDataBox.Text;
+                contractModel.StartOfContract = dateOfTheStartOfTheContractBox.Text;
+                contractModel.EndOfContract = dateOfTheEndOfTheContractBox.Text;
+                client.PhoneNumber = phoneNumberBox.Text;
+            }
+            else
+            {
+                MessageBox.Show("Ви не вказали, як мінімум, одне із значень", "Помилка!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                this.Hide();
+                MultipleChooserPage multipleChooserPage = new MultipleChooserPage();
+                multipleChooserPage.Show();
+            }
+
+            if (typeOfCarComboBox.Text != null)
+            {
+                autoParkModel.TypeOfCar = typeOfCarComboBox.Text;
+            }
+            else
+            {
+                MessageBox.Show("Ви не вказали тип машини", "Помилка!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (nameOfCarComboBox_1.Text != null)
+            {
+                client.NameOfCar = nameOfCarComboBox_1.Text;
+                autoParkModel.NameOfCar = nameOfCarComboBox_1.Text;
+            }
+            else
+            {
+                MessageBox.Show("Ви не обрали машину", "Помилка!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             // Ініціалізація змінної за типом класа для бази даних
             DB dataBase = new DB();

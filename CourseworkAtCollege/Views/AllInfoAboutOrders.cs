@@ -53,6 +53,10 @@ namespace CourseworkAtCollege
                 // для передачі запиту до бази даних
                 MySqlCommand command = new MySqlCommand(commandForDataBase, dataBase.getConnection());
 
+                // Очищуємо попередню інформацію
+                // з таблиці
+                dataGridView1.Rows.Clear();
+
                 // Ініціалізація змінної для роботи 
                 // із об'єктами, переданими із бази даних
                 MySqlDataReader sqlReader = command.ExecuteReader();
@@ -133,27 +137,20 @@ namespace CourseworkAtCollege
                 // передачі запитів до бази даних
                 string commandForDataBase;
 
-                if (textBox1.Text == null)
+                if (textBox1.Text == "")
                 {
 
                     // Якщо поле пошуку пусте, 
                     // то будуть виведені всі об'єкти
-                    commandForDataBase =
-                    "select " +
-                        "client.idClient, " +
-                        "FirstName," +
-                        "LastName," +
-                        "FatherName," +
-                        "PassportData," +
-                        "PhoneNumber," +
-                        "NameOfCar," +
-                        "StartOfContract," +
-                        "EndOfContract " +
-                    "from client left join (customer left join contract on customer.idContract = contract.idContract ) on client.idClient = customer.idClient; ";
+                    GettingAllObjectsFromDataBase();
+                    return;
                 } else {
 
                     // Створення запиту за, введеними у рядок пошуку, даними
-                    commandForDataBase = "Select * from client where FirstName like '" + textBox1.Text + "%' ;";
+                    commandForDataBase = "select client.idClient, FirstName,LastName,FatherName,PassportData,PhoneNumber,NameOfCar,StartOfContract,EndOfContract " +
+                "from client inner join(customer inner join contract " +
+                "on customer.idContract= contract.idContract " +
+                ") on client.idClient = customer.idClient where client.FirstName like '" + textBox1.Text + "%' ;";
                 }
 
                 // Ініціалізація змінної, що використовується 

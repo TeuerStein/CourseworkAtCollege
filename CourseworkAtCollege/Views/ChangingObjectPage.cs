@@ -48,9 +48,11 @@ namespace CourseworkAtCollege
             string commandForDataBase =
                 "select  FirstName,LastName,FatherName,PassportData,StartOfContract,EndOfContract,PhoneNumber,TypeOfCar,autopark.NameOfCar " +
                 "from(client inner join(customer inner join autopark " +
-                "on  customer.idCar = autopark.idCar)) inner join(customer c2 inner join contract " +
-                "on c2.idContract= contract.idContract " +
-                ") on client.idClient = customer.idClient;" ;
+                "on  customer.idCar = autopark.idCar)on client.idClient = customer.idClient) inner join(customer customerSecond inner join contract " +
+                "on customerSecond.idContract= contract.idContract " +
+                ") on client.idClient = customer.idClient " +
+                "where client.idClient = @idClient " +
+                "limit 1;";
 
             // Ініціалізація змінної, що використовується 
             // для передачі запиту до бази даних
@@ -112,54 +114,16 @@ namespace CourseworkAtCollege
 
             // Присвоєння значень з полей для вводу інформації
             // до змінних моделі
-            if (
-                firstNameBox.Text != null && firstNameBox.Text != "" &&
-                lastNameBox.Text != null && lastNameBox.Text != "" &&
-                fatherNameBox.Text != null && fatherNameBox.Text != "" &&
-                passportDataBox.Text != null && passportDataBox.Text != "" &&
-                dateOfTheStartOfTheContractBox.Text != null && dateOfTheStartOfTheContractBox.Text != "" &&
-                dateOfTheEndOfTheContractBox.Text != null && dateOfTheEndOfTheContractBox.Text != "" &&
-                phoneNumberBox.Text != null && phoneNumberBox.Text != ""
-            )
-            {
-                client.FirstName = firstNameBox.Text;
-                client.LastName = lastNameBox.Text;
-                client.FatherName = fatherNameBox.Text;
-                client.PassportData = passportDataBox.Text;
-                contractModel.StartOfContract = dateOfTheStartOfTheContractBox.Text;
-                contractModel.EndOfContract = dateOfTheEndOfTheContractBox.Text;
-                client.PhoneNumber = phoneNumberBox.Text;
-            }
-            else
-            {
-                MessageBox.Show("Ви не вказали, як мінімум, одне із значень", "Помилка!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                this.Hide();
-                MultipleChooserPage multipleChooserPage = new MultipleChooserPage();
-                multipleChooserPage.Show();
-            }
-
-            if (typeOfCarComboBox.Text != null)
-            {
-                autoParkModel.TypeOfCar = typeOfCarComboBox.Text;
-            }
-            else
-            {
-                MessageBox.Show("Ви не вказали тип машини", "Помилка!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            if (nameOfCarComboBox_1.Text != null)
-            {
-                client.NameOfCar = nameOfCarComboBox_1.Text;
-                autoParkModel.NameOfCar = nameOfCarComboBox_1.Text;
-            }
-            else
-            {
-                MessageBox.Show("Ви не обрали машину", "Помилка!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            client.FirstName = firstNameBox.Text;
+            client.LastName = lastNameBox.Text;
+            client.FatherName = fatherNameBox.Text;
+            client.PassportData = passportDataBox.Text;
+            contractModel.StartOfContract = dateOfTheStartOfTheContractBox.Text;
+            contractModel.EndOfContract = dateOfTheEndOfTheContractBox.Text;
+            client.PhoneNumber = phoneNumberBox.Text;
+            autoParkModel.TypeOfCar = typeOfCarComboBox.Text;
+            client.NameOfCar = nameOfCarComboBox_1.Text;
+            autoParkModel.NameOfCar = nameOfCarComboBox_1.Text;
 
             // Ініціалізація змінної за типом класа для бази даних
             DB dataBase = new DB();

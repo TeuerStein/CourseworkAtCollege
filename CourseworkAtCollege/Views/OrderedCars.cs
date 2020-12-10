@@ -36,7 +36,7 @@ namespace CourseworkAtCollege
             {
 
                 // Створення запиту до бази даних
-                string commandForDataBase = "select  autopark.NameOfCar,TypeOfCar,EndOfContract,Status " +
+                string commandForDataBase = "select autopark.NameOfCar,TypeOfCar,EndOfContract " +
                     "from(client inner join(customer inner join autopark " +
                     "on  customer.idCar = autopark.idCar)) inner join(customer c2 inner join contract " +
                     "on c2.idContract= contract.idContract ) on client.idClient = customer.idClient;";
@@ -56,12 +56,11 @@ namespace CourseworkAtCollege
                 {
                     // Процес присвоєння одного об'єкта за другим в масив
 
-                    objectsFromDataBase.Add(new string[4]);
+                    objectsFromDataBase.Add(new string[3]);
 
                     objectsFromDataBase[objectsFromDataBase.Count - 1][0] = sqlReader[0].ToString();
                     objectsFromDataBase[objectsFromDataBase.Count - 1][1] = sqlReader[1].ToString();
                     objectsFromDataBase[objectsFromDataBase.Count - 1][2] = sqlReader[2].ToString();
-                    objectsFromDataBase[objectsFromDataBase.Count - 1][3] = sqlReader[3].ToString();
                 }
 
                 // Завершення роботи змінної для роботи із об'єктами
@@ -113,16 +112,21 @@ namespace CourseworkAtCollege
                 // передачі запитів до бази даних
                 string commandForDataBase;
 
-                if (textBox1.Text == null)
+                if (textBox1.Text == "")
                 {
 
-                    // Якщо поле пошуку пусте, 
-                    // то будуть виведені всі об'єкти
-                    commandForDataBase = "select FirstName, LastName, EndOfContract, TypeOfCar from client ORDER BY TypeOfCar;";
+                    gettingAllObjectsFromDataBase();
+                    return;
                 } else {
 
                     // Створення запиту за, введеними у рядок пошуку, даними
-                    commandForDataBase = "Select FirstName, LastName, EndOfContract, TypeOfCar from client where TypeOfCar like '" + textBox1.Text + "%' ORDER BY TypeOfCar;";
+                    commandForDataBase = "Select autopark.NameOfCar, TypeOfCar, EndOfContract " +
+                "from(client inner join(customer inner join autopark " +
+                "on  customer.idCar = autopark.idCar)on client.idClient = customer.idClient) inner join(customer customerSecond inner join contract " +
+                "on customerSecond.idContract= contract.idContract " +
+                ") on client.idClient = customer.idClient" +
+                " where TypeOfCar like '" + textBox1.Text + "%' ORDER BY TypeOfCar;";
+
                 }
 
                 // Ініціалізація змінної, що використовується 
@@ -144,12 +148,11 @@ namespace CourseworkAtCollege
                 {
                     // Процес присвоєння одного об'єкта за другим в масив
 
-                    objectsFromDataBase.Add(new string[4]);
+                    objectsFromDataBase.Add(new string[3]);
 
                     objectsFromDataBase[objectsFromDataBase.Count - 1][0] = sqlReader[0].ToString();
                     objectsFromDataBase[objectsFromDataBase.Count - 1][1] = sqlReader[1].ToString();
                     objectsFromDataBase[objectsFromDataBase.Count - 1][2] = sqlReader[2].ToString();
-                    objectsFromDataBase[objectsFromDataBase.Count - 1][3] = sqlReader[3].ToString();
                 }
 
                 // Завершення роботи змінної для роботи із об'єктами
